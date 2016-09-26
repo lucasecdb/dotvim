@@ -44,7 +44,7 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
 " airline setup
 let g:airline_powerline_fonts = 1
-" let g:airline_theme='kolor'
+let g:airline_theme='lucius'
 set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
 set laststatus=2
 
