@@ -17,16 +17,24 @@ command W w
 command Q q
 
 " color scheme
-colorscheme predawn
-"set background=dark
+set background=dark
+colorscheme material-theme
 
 " key mappings
 inoremap <c-u> <esc>viwUi
 nnoremap <c-u> viwU
 nnoremap <c-n> :Nt<cr><c-w><c-w>
 
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+
+nnoremap <s-h> :bnext<cr>
+nnoremap <s-l> :bprevious<cr>
+
 " misc
-" set term=xterm-256color
+set term=screen-256color
 set nocompatible
 
 " pathogen
@@ -52,6 +60,7 @@ set laststatus=2
 let g:numbers_exclude = ['nerdtree']
 
 " use system clipboard by default
+" (obs.: must compile vim from source)
 set clipboard=unnamedplus
 
 " keep at least 3 lines bellow the cursor
