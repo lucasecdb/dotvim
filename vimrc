@@ -17,8 +17,13 @@ command W w
 command Q q
 
 " color scheme
-set background=dark
-colorscheme material-theme
+if has('gui')
+    set background=dark
+    colorscheme material-theme
+else
+    set background=dark
+    colorscheme gruvbox
+endif
 
 " key mappings
 inoremap <c-u> <esc>viwUi
