@@ -17,11 +17,12 @@ command Q q
 
 " color scheme
 if has('gui')
-    set background=dark
-    colorscheme material-theme
+  set linespace=3
+  set background=dark
+  colorscheme material-theme
 else
-    set background=dark
-    colorscheme gruvbox
+  set background=dark
+  colorscheme gruvbox
 endif
 
 " key mappings
@@ -40,6 +41,11 @@ nnoremap <s-l> :bprevious<cr>
 " misc
 set term=screen-256color
 set nocompatible
+
+if has('gui')
+  set guioptions-=r
+  set guioptions-=L
+endif
 
 " pathogen
 execute pathogen#infect()
