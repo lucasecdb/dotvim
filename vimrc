@@ -18,12 +18,10 @@ command Q q
 " color scheme
 if has('gui')
   set linespace=3
-  set background=dark
-  colorscheme material-theme
-else
-  set background=dark
-  colorscheme gruvbox
 endif
+
+set background=dark
+colorscheme gruvbox
 
 " key mappings
 inoremap <c-u> <esc>viwUi
@@ -39,7 +37,6 @@ nnoremap <s-h> :bnext<cr>
 nnoremap <s-l> :bprevious<cr>
 
 " misc
-set term=screen-256color
 set nocompatible
 
 if has('gui')
