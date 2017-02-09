@@ -21,7 +21,7 @@ if has('gui')
 endif
 
 set background=dark
-colorscheme gruvbox
+colorscheme neodark
 
 " key mappings
 inoremap <c-u> <esc>viwUi
