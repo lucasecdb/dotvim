@@ -57,11 +57,16 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_java_checkers = ['javac']
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
+let g:flow#enable = 0
+
 " airline setup
 let g:airline_powerline_fonts = 1
 let g:airline_theme='lucius'
-set guifont=Operator\ Mono\ Medium\ 11
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 set laststatus=2
+
+set guifont=Operator\ Mono\ Medium\ 11
 
 " numbers.vim settings
 let g:numbers_exclude = ['nerdtree']
