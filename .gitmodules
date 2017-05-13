@@ -31,3 +31,6 @@
 [submodule "bundle/vim-flow"]
 	path = bundle/vim-flow
 	url = git://github.com/flowtype/vim-flow.git
+[submodule "bundle/dart-vim"]
+	path = bundle/dart-vim
+	url = https://github.com/dart-lang/dart-vim-plugin
