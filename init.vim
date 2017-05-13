@@ -7,7 +7,6 @@ set softtabstop=2
 
 set number
 set backspace=indent,eol,start
-set noesckeys
 syntax on
 
 " command aliases
@@ -41,7 +40,7 @@ set nocompatible
 
 " whitespace
 set list
-set listchars=eol:¬,space:·
+set listchars=eol:¬
 
 if has('gui')
   set guioptions-=r
