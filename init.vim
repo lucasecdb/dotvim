@@ -33,10 +33,8 @@ inoremap <c-u> <esc>viwUi
 nnoremap <c-u> viwU
 nnoremap <c-n> :Nt<cr><c-w><c-w>
 
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
+nnoremap <c-h> :tabn<cr>
+nnoremap <c-l> :tabp<cr>
 
 nnoremap <s-h> :bnext<cr>
 nnoremap <s-l> :bprevious<cr>
