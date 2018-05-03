@@ -22,8 +22,11 @@ if has('gui')
   set linespace=3
 endif
 
+set t_Co=256
+set t_ut=
+
 set background=dark
-colorscheme neodark
+colorscheme codedark
 
 " key mappings
 inoremap <c-u> <esc>viwUi
@@ -45,9 +48,6 @@ if has('gui')
   set guioptions-=r
   set guioptions-=L
 endif
-
-" pathogen
-execute pathogen#infect()
 
 " syntastic setup
 set statusline+=%#warningmsg#
