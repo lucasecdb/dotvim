@@ -180,17 +180,17 @@ call <sid>hi('Number', s:cdLightGreen, {}, 'none', {})
 call <sid>hi('Boolean', s:cdBlue, {}, 'none', {})
 call <sid>hi('Float', s:cdLightGreen, {}, 'none', {})
 
-call <sid>hi('Identifier', s:cdLightBlue, {}, 'none', {})
-call <sid>hi('Function', s:cdYellow, {}, 'none', {})
+call <sid>hi('Identifier', s:cdBlue, {}, 'none', {})
+call <sid>hi('Function', s:cdBlue, {}, 'none', {})
 
-call <sid>hi('Statement', s:cdPink, {}, 'none', {})
-call <sid>hi('Conditional', s:cdPink, {}, 'none', {})
-call <sid>hi('Repeat', s:cdPink, {}, 'none', {})
-call <sid>hi('Label', s:cdPink, {}, 'none', {})
+call <sid>hi('Statement', s:cdBlue, {}, 'none', {})
+call <sid>hi('Conditional', s:cdBlue, {}, 'none', {})
+call <sid>hi('Repeat', s:cdBlue, {}, 'none', {})
+call <sid>hi('Label', s:cdBlue, {}, 'none', {})
 call <sid>hi('Operator', s:cdFront, {}, 'none', {})
-call <sid>hi('Keyword', s:cdPink, {}, 'none', {})
+call <sid>hi('Keyword', s:cdBlue, {}, 'none', {})
 call <sid>hi('pythonOperator', s:cdPink, {}, 'none', {})
-call <sid>hi('Exception', s:cdPink, {}, 'none', {})
+call <sid>hi('Exception', s:cdBlue, {}, 'none', {})
 
 call <sid>hi('PreProc', s:cdPink, {}, 'none', {})
 call <sid>hi('Include', s:cdPink, {}, 'none', {})
@@ -205,7 +205,7 @@ call <sid>hi('Typedef', s:cdBlue, {}, 'none', {})
 
 call <sid>hi('Special', s:cdFront, {}, 'none', {})
 call <sid>hi('SpecialChar', s:cdFront, {}, 'none', {})
-call <sid>hi('Tag', s:cdFront, {}, 'none', {})
+call <sid>hi('Tag', s:cdYellow, {}, 'none', {})
 call <sid>hi('Delimiter', s:cdFront, {}, 'none', {})
 call <sid>hi('SpecialComment', s:cdGreen, {}, 'none', {})
 call <sid>hi('Debug', s:cdFront, {}, 'none', {})
@@ -215,7 +215,7 @@ call <sid>hi("Conceal", s:cdFront, s:cdBack, 'none', {})
 
 call <sid>hi('Ignore', s:cdFront, {}, 'none', {})
 
-call <sid>hi('Error', s:cdRed, {}, 'undercurl', s:cdRed)
+call <sid>hi('Error', s:cdFront, {}, 'undercurl', s:cdRed)
 
 call <sid>hi('Todo', s:cdNone, s:cdLeftMid, 'none', {})
 
@@ -248,7 +248,7 @@ call <sid>hi('cssValueLength', s:cdOrange, {}, 'none', {})
 call <sid>hi('cssUnitDecorators', s:cdOrange, {}, 'none', {})
 
 " JavaScript:
-call <sid>hi('jsVariableDef', s:cdLightBlue, {}, 'none', {})
+call <sid>hi('jsVariableDef', s:cdBlue, {}, 'none', {})
 call <sid>hi('jsFuncArgs', s:cdLightBlue, {}, 'none', {})
 call <sid>hi('jsRegexpString', s:cdLightRed, {}, 'none', {})
 call <sid>hi('jsThis', s:cdBlue, {}, 'none', {})
