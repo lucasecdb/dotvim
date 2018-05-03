@@ -38,10 +38,6 @@ nnoremap <s-l> :bprevious<cr>
 " misc
 set nocompatible
 
-" whitespace
-set list
-set listchars=eol:¬
-
 if has('gui')
   set guioptions-=r
   set guioptions-=L
