@@ -18,6 +18,7 @@ call minpac#add('jiangmiao/auto-pairs')
 call minpac#add('isRuslan/vim-es6')
 call minpac#add('flowtype/vim-flow')
 call minpac#add('leafgarland/typescript-vim')
+" call minpac#add('w0rp/ale')
 
 set autoindent
 set expandtab
@@ -53,16 +54,6 @@ if has('gui')
   set guioptions-=L
 endif
 
-" syntastic setup
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_java_checkers = ['javac']
-let g:syntastic_cpp_compiler_options = ' -std=c++11'
-
 let g:flow#enable = 0
 
 " airline setup
@@ -73,9 +64,6 @@ let g:airline_right_sep=''
 set laststatus=2
 
 set guifont=Operator\ Mono\ Medium\ 11
-
-" numbers.vim settings
-let g:numbers_exclude = ['nerdtree']
 
 " use system clipboard by default
 " (obs.: must compile vim from source)
