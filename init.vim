@@ -38,25 +38,15 @@ if has('gui')
   set linespace=3
 endif
 
-set t_Co=256
-set t_ut=
-
 set background=dark
 colorscheme codedark
 
 " key mappings
-inoremap <c-u> <esc>viwUi
-nnoremap <c-u> viwU
-nnoremap <c-n> :Nt<cr><c-w><c-w>
-
 nnoremap <c-h> :tabn<cr>
 nnoremap <c-l> :tabp<cr>
 
 nnoremap <s-h> :bnext<cr>
 nnoremap <s-l> :bprevious<cr>
-
-" misc
-set nocompatible
 
 if has('gui')
   set guioptions-=r
