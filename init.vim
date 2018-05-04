@@ -3,6 +3,22 @@ let $LANG='en_US'
 
 filetype indent plugin on
 
+packadd minpac
+
+call minpac#init()
+
+" Packages
+call minpac#add('myusuf3/numbers.vim')
+call minpac#add('tpope/vim-surround')
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-airline/vim-airline-themes')
+call minpac#add('mxw/vim-jsx')
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('jiangmiao/auto-pairs')
+call minpac#add('isRuslan/vim-es6')
+call minpac#add('flowtype/vim-flow')
+call minpac#add('leafgarland/typescript-vim')
+
 set autoindent
 set expandtab
 set shiftwidth=2
