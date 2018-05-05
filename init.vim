@@ -5,7 +5,7 @@ filetype indent plugin on
 
 packadd minpac
 
-call minpac#init()
+call minpac#init({ 'verbose': 3 })
 
 " Packages
 call minpac#add('myusuf3/numbers.vim')
@@ -18,7 +18,7 @@ call minpac#add('jiangmiao/auto-pairs')
 call minpac#add('isRuslan/vim-es6')
 call minpac#add('flowtype/vim-flow')
 call minpac#add('leafgarland/typescript-vim')
-" call minpac#add('w0rp/ale')
+call minpac#add('w0rp/ale')
 
 set autoindent
 set expandtab
@@ -39,6 +39,7 @@ if has('gui')
   set linespace=3
 endif
 
+set termguicolors
 set background=dark
 colorscheme codedark
 
