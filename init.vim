@@ -20,6 +20,7 @@ call minpac#add('flowtype/vim-flow')
 call minpac#add('leafgarland/typescript-vim')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('w0rp/ale')
+call minpac#add('lucasecdb/vim-codedark')
 
 set autoindent
 set expandtab
