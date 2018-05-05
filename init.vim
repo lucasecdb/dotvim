@@ -18,6 +18,7 @@ call minpac#add('jiangmiao/auto-pairs')
 call minpac#add('isRuslan/vim-es6')
 call minpac#add('flowtype/vim-flow')
 call minpac#add('leafgarland/typescript-vim')
+call minpac#add('pangloss/vim-javascript')
 call minpac#add('w0rp/ale')
 
 set autoindent
@@ -29,11 +30,6 @@ set number
 set backspace=indent,eol,start
 syntax on
 
-" command aliases
-command Nt NERDTree
-command W w
-command Q q
-
 " color scheme
 if has('gui')
   set linespace=3
@@ -44,8 +40,8 @@ set background=dark
 colorscheme codedark
 
 " key mappings
-nnoremap <c-h> :tabn<cr>
-nnoremap <c-l> :tabp<cr>
+nnoremap <c-l> :tabn<cr>
+nnoremap <c-h> :tabp<cr>
 
 nnoremap <s-h> :bnext<cr>
 nnoremap <s-l> :bprevious<cr>
@@ -72,3 +68,4 @@ set clipboard=unnamedplus
 
 " keep at least 3 lines bellow the cursor
 set scrolloff=3
+
