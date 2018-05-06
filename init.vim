@@ -3,6 +3,8 @@ let $LANG='en_US'
 
 filetype indent plugin on
 
+""" Section: Packages {{{1
+
 packadd minpac
 
 call minpac#init({ 'verbose': 3 })
@@ -21,6 +23,19 @@ call minpac#add('leafgarland/typescript-vim')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('w0rp/ale')
 call minpac#add('lucasecdb/vim-codedark')
+call minpac#add('scrooloose/nerdtree')
+
+let g:flow#enable = 0
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme='codedark'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+
+set laststatus=2
+
+""" }}}1
+""" Section: Options {{{1
 
 set autoindent
 set expandtab
@@ -31,7 +46,6 @@ set number
 set backspace=indent,eol,start
 syntax on
 
-" color scheme
 if has('gui')
   set linespace=3
 endif
@@ -40,33 +54,23 @@ set termguicolors
 set background=dark
 colorscheme codedark
 
-" key mappings
-nnoremap <c-l> :tabn<cr>
-nnoremap <c-h> :tabp<cr>
-
-nnoremap <s-h> :bnext<cr>
-nnoremap <s-l> :bprevious<cr>
+set clipboard=unnamedplus
+set scrolloff=3
 
 if has('gui')
   set guioptions-=r
   set guioptions-=L
 endif
 
-let g:flow#enable = 0
+""" }}}1
+""" Section: Mappings {{{1
 
-" airline setup
-let g:airline_powerline_fonts = 1
-let g:airline_theme='codedark'
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-set laststatus=2
+nnoremap <c-l> :tabn<cr>
+nnoremap <c-h> :tabp<cr>
 
-set guifont=Operator\ Mono\ Medium\ 11
+nnoremap <s-h> :bnext<cr>
+nnoremap <s-l> :bprevious<cr>
+nnoremap <c-n> :NERDTreeToggle<cr>
 
-" use system clipboard by default
-" (obs.: must compile vim from source)
-set clipboard=unnamedplus
-
-" keep at least 3 lines bellow the cursor
-set scrolloff=3
+""" }}}1
 
