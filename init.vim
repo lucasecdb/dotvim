@@ -1,8 +1,3 @@
-set langmenu=en_US
-let $LANG='en_US'
-
-filetype indent plugin on
-
 """ Section: Packages {{{1
 
 packadd minpac
@@ -37,30 +32,18 @@ set laststatus=2
 """ }}}1
 """ Section: Options {{{1
 
+set langmenu=en_US
+let $LANG='en_US'
 set autoindent
 set expandtab
 set shiftwidth=2
 set softtabstop=2
-
+set foldmethod=marker
+set foldopen+=jump
 set number
 set backspace=indent,eol,start
-syntax on
-
-if has('gui')
-  set linespace=3
-endif
-
-set termguicolors
-set background=dark
-colorscheme codedark
-
 set clipboard=unnamedplus
 set scrolloff=3
-
-if has('gui')
-  set guioptions-=r
-  set guioptions-=L
-endif
 
 """ }}}1
 """ Section: Mappings {{{1
@@ -73,4 +56,30 @@ nnoremap <s-l> :bprevious<cr>
 nnoremap <c-n> :NERDTreeToggle<cr>
 
 """ }}}1
+""" Section: Autocommands {{{1
+
+if has('autocmd')
+  filetype indent plugin on
+endif
+
+"""}}}1
+""" Section: Visual {{{1
+
+if has('syntax')
+  if !has('syntax_on') && !exists('syntax_manual')
+    syntax on
+  endif
+
+  if has('gui')
+    set linespace=3
+    set guioptions-=r
+    set guioptions-=L
+  endif
+
+  set termguicolors
+  set background=dark
+  colorscheme codedark
+endif
+
+"""}}}1
 
