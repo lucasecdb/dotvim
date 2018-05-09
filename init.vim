@@ -40,6 +40,8 @@ set laststatus=2
 """ }}}1
 """ Section: Mappings {{{1
 
+let mapleader=','
+
 nnoremap <c-l> :tabn<cr>
 nnoremap <c-h> :tabp<cr>
 
@@ -60,6 +62,9 @@ let g:airline_right_sep=''
 let g:ale_fixers={
       \'python': ['flake8']
       \}
+
+let g:CommandTAcceptSelectionMap = '<C-t>'
+let g:CommandTAcceptSelectionTabMap = '<CR>'
 
 """}}}
 """ Section: Autocommands {{{1
