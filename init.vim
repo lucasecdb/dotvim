@@ -1,10 +1,9 @@
-""" Section: Packages {{{1
-
 packadd minpac
 
 call minpac#init({ 'verbose': 3 })
 
-" Packages
+""" Section: Packages {{{1
+
 call minpac#add('myusuf3/numbers.vim')
 call minpac#add('tpope/vim-surround')
 call minpac#add('vim-airline/vim-airline')
@@ -19,15 +18,6 @@ call minpac#add('pangloss/vim-javascript')
 call minpac#add('w0rp/ale')
 call minpac#add('lucasecdb/vim-codedark')
 call minpac#add('scrooloose/nerdtree')
-
-let g:flow#enable = 0
-
-let g:airline_powerline_fonts = 1
-let g:airline_theme='codedark'
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-
-set laststatus=2
 
 """ }}}1
 """ Section: Options {{{1
@@ -44,6 +34,7 @@ set number
 set backspace=indent,eol,start
 set clipboard=unnamedplus
 set scrolloff=3
+set laststatus=2
 
 """ }}}1
 """ Section: Mappings {{{1
@@ -56,6 +47,20 @@ nnoremap <s-l> :bprevious<cr>
 nnoremap <c-n> :NERDTreeToggle<cr>
 
 """ }}}1
+""" Section: Plugins options {{{1
+
+let g:flow#enable=0
+
+let g:airline_powerline_fonts=1
+let g:airline_theme='codedark'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+
+let g:ale_fixers={
+      \'python': 'flake8'
+      \}
+
+"""}}}
 """ Section: Autocommands {{{1
 
 if has('autocmd')
