@@ -63,6 +63,7 @@ let g:ale_completion_enabled=1
 
 let g:CommandTAcceptSelectionMap = '<C-t>'
 let g:CommandTAcceptSelectionTabMap = '<CR>'
+let g:CommandTFileScanner='git'
 
 """}}}
 """ Section: Autocommands {{{1
