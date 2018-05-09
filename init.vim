@@ -18,6 +18,7 @@ call minpac#add('pangloss/vim-javascript')
 call minpac#add('w0rp/ale')
 call minpac#add('lucasecdb/vim-codedark')
 call minpac#add('scrooloose/nerdtree')
+call minpac#add('wincent/command-t')
 
 """ }}}1
 """ Section: Options {{{1
@@ -57,7 +58,7 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 
 let g:ale_fixers={
-      \'python': 'flake8'
+      \'python': ['flake8']
       \}
 
 """}}}
