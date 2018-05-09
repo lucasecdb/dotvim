@@ -59,9 +59,7 @@ let g:airline_theme='codedark'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 
-let g:ale_fixers={
-      \'python': ['flake8']
-      \}
+let g:ale_completion_enabled=1
 
 let g:CommandTAcceptSelectionMap = '<C-t>'
 let g:CommandTAcceptSelectionTabMap = '<CR>'
