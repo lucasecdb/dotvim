@@ -19,6 +19,8 @@ call minpac#add('w0rp/ale')
 call minpac#add('lucasecdb/vim-codedark')
 call minpac#add('scrooloose/nerdtree')
 call minpac#add('wincent/command-t')
+call minpac#add('Shougo/deoplete.nvim')
+call minpac#add('zchee/deoplete-jedi')
 
 """ }}}1
 """ Section: Options {{{1
@@ -64,6 +66,8 @@ let g:ale_completion_enabled=1
 let g:CommandTAcceptSelectionMap = '<C-t>'
 let g:CommandTAcceptSelectionTabMap = '<CR>'
 let g:CommandTFileScanner='git'
+
+let g:deoplete#enable_at_startup=1
 
 """}}}
 """ Section: Autocommands {{{1
