@@ -74,6 +74,21 @@ let g:deoplete#enable_at_startup=1
 
 if has('autocmd')
   filetype indent plugin on
+
+  augroup FTCheck " {{{2
+    autocmd!
+    autocmd BufRead,BufNewFile *.nginx,*/etc/nginx/*,*/usr/local/nginx/conf/*,nginx.conf set ft=nginx
+  augroup END " }}}2
+  augroup FTOptions " {{{2
+    autocmd!
+    autocmd FileType gitcommit setlocal spell
+    autocmd FileType python let b:ale_linters=['flake8'] | let b:ale_fixers=['autopep8']
+    autocmd FileType nginx setlocal indentexpr= |
+          \ setlocal cindent |
+          \ setlocal cinkeys-=0#
+    autocmd FileType cs setlocal shiftwidth=4 |
+          \ setlocal softtabstop=4
+  augroup END " }}}2
 endif
 
 """}}}1
