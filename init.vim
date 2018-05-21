@@ -46,10 +46,10 @@ let mapleader=','
 
 nnoremap <c-l> :tabn<cr>
 nnoremap <c-h> :tabp<cr>
-
 nnoremap <s-h> :bnext<cr>
 nnoremap <s-l> :bprevious<cr>
 nnoremap <c-n> :NERDTreeToggle<cr>
+nnoremap <silent> <leader><Space> :set nohls<cr>
 
 """ }}}1
 """ Section: Plugins options {{{1
