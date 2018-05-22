@@ -83,6 +83,7 @@ if has('autocmd')
     autocmd!
     autocmd FileType gitcommit setlocal spell
     autocmd FileType python let b:ale_linters=['flake8'] | let b:ale_fixers=['autopep8']
+    autocmd FileType javascript let b:ale_fixers=['prettier']
     autocmd FileType nginx setlocal indentexpr= |
           \ setlocal cindent |
           \ setlocal cinkeys-=0#
