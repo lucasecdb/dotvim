@@ -44,12 +44,21 @@ set laststatus=2
 
 let mapleader=','
 
-nnoremap <c-l> :tabn<cr>
-nnoremap <c-h> :tabp<cr>
-nnoremap <s-h> :bnext<cr>
-nnoremap <s-l> :bprevious<cr>
+nnoremap <silent> <c-h> <c-w>h
+nnoremap <silent> <c-j> <c-w>j
+nnoremap <silent> <c-k> <c-w>k
+nnoremap <silent> <c-l> <c-w>l
+
+nnoremap <silent> <s-l> :bnext<cr>
+nnoremap <silent> <s-h> :bprevious<cr>
+
 nnoremap <c-n> :NERDTreeToggle<cr>
 nnoremap <silent> <leader><Space> :set nohls<cr>
+
+command WQ wq
+command Wq wq
+command W w
+command Q q
 
 """ }}}1
 """ Section: Plugins options {{{1
@@ -63,8 +72,6 @@ let g:airline_right_sep=''
 
 let g:ale_completion_enabled=1
 
-let g:CommandTAcceptSelectionMap = '<C-t>'
-let g:CommandTAcceptSelectionTabMap = '<CR>'
 let g:CommandTFileScanner='git'
 
 let g:deoplete#enable_at_startup=1
