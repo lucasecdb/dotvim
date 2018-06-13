@@ -38,16 +38,20 @@ set backspace=indent,eol,start
 set clipboard=unnamedplus
 set scrolloff=3
 set laststatus=2
+set splitbelow
+set splitright
 
 """ }}}1
 """ Section: Mappings {{{1
 
 let mapleader=','
 
-nnoremap <c-l> :tabn<cr>
-nnoremap <c-h> :tabp<cr>
-nnoremap <s-h> :bnext<cr>
-nnoremap <s-l> :bprevious<cr>
+nnoremap <c-l> <c-w>l
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <silent> <s-h> :bnext<cr>
+nnoremap <silent> <s-l> :bprevious<cr>
 nnoremap <c-n> :NERDTreeToggle<cr>
 nnoremap <silent> <leader><Space> :set nohls<cr>
 
@@ -63,8 +67,6 @@ let g:airline_right_sep=''
 
 let g:ale_completion_enabled=1
 
-let g:CommandTAcceptSelectionMap = '<C-t>'
-let g:CommandTAcceptSelectionTabMap = '<CR>'
 let g:CommandTFileScanner='git'
 
 let g:deoplete#enable_at_startup=1
@@ -89,6 +91,9 @@ if has('autocmd')
           \ setlocal cinkeys-=0#
     autocmd FileType cs setlocal shiftwidth=4 |
           \ setlocal softtabstop=4
+  augroup END " }}}2
+  augroup Term " {{{2
+    au TermOpen * setlocal nonumber norelativenumber
   augroup END " }}}2
 endif
 
