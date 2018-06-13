@@ -46,14 +46,21 @@ set splitright
 
 let mapleader=','
 
-nnoremap <c-l> <c-w>l
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <silent> <s-h> :bnext<cr>
-nnoremap <silent> <s-l> :bprevious<cr>
+nnoremap <silent> <c-h> <c-w>h
+nnoremap <silent> <c-j> <c-w>j
+nnoremap <silent> <c-k> <c-w>k
+nnoremap <silent> <c-l> <c-w>l
+
+nnoremap <silent> <s-l> :bnext<cr>
+nnoremap <silent> <s-h> :bprevious<cr>
+
 nnoremap <c-n> :NERDTreeToggle<cr>
 nnoremap <silent> <leader><Space> :set nohls<cr>
+
+command WQ wq
+command Wq wq
+command W w
+command Q q
 
 """ }}}1
 """ Section: Plugins options {{{1
