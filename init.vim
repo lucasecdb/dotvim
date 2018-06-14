@@ -60,7 +60,7 @@ nnoremap <silent> <leader>q :q<cr>
 
 nnoremap <silent> <leader>c :Gcommit<cr>
 nnoremap <silent> <leader>s :Gstatus<cr>
-nnoremap <silent> <leader>p :Gpush<cr>
+nnoremap <leader>p :Gpush<cr>
 
 command! WQ wq
 command! Wq wq
