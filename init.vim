@@ -56,11 +56,16 @@ nnoremap <silent> <s-h> :bprevious<cr>
 
 nnoremap <c-n> :NERDTreeToggle<cr>
 nnoremap <silent> <leader><Space> :set nohls<cr>
+nnoremap <silent> <leader>q :q<cr>
 
-command WQ wq
-command Wq wq
-command W w
-command Q q
+nnoremap <silent> <leader>c :Gcommit<cr>
+nnoremap <silent> <leader>s :Gstatus<cr>
+nnoremap <silent> <leader>p :Gpush<cr>
+
+command! WQ wq
+command! Wq wq
+command! W w
+command! Q q
 
 """ }}}1
 """ Section: Plugins options {{{1
@@ -100,7 +105,8 @@ if has('autocmd')
           \ setlocal softtabstop=4
   augroup END " }}}2
   augroup Term " {{{2
-    au TermOpen * setlocal nonumber norelativenumber
+    autocmd!
+    autocmd TermOpen * setlocal nonumber norelativenumber
   augroup END " }}}2
 endif
 
