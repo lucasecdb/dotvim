@@ -40,6 +40,7 @@ set scrolloff=3
 set laststatus=2
 set splitbelow
 set splitright
+set cursorline
 
 """ }}}1
 """ Section: Mappings {{{1
