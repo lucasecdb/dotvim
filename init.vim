@@ -41,6 +41,7 @@ set laststatus=2
 set splitbelow
 set splitright
 set cursorline
+set mouse=a
 
 """ }}}1
 """ Section: Mappings {{{1
