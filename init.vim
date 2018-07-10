@@ -21,7 +21,6 @@ call minpac#add('scrooloose/nerdtree')
 call minpac#add('wincent/command-t')
 call minpac#add('Shougo/deoplete.nvim')
 call minpac#add('zchee/deoplete-jedi')
-call minpac#add('leafgarland/typescript-vim')
 
 """ }}}1
 """ Section: Options {{{1
