@@ -18,9 +18,9 @@ call minpac#add('pangloss/vim-javascript')
 call minpac#add('w0rp/ale')
 call minpac#add('lucasecdb/vim-codedark')
 call minpac#add('scrooloose/nerdtree')
-call minpac#add('wincent/command-t')
 call minpac#add('Shougo/deoplete.nvim')
 call minpac#add('zchee/deoplete-jedi')
+call minpac#add('junegunn/fzf.vim')
 
 """ }}}1
 """ Section: Options {{{1
@@ -42,6 +42,8 @@ set splitbelow
 set splitright
 set cursorline
 set mouse=a
+set rtp+=/usr/local/opt/fzf
+set rtp+=~/.fzf
 
 """ }}}1
 """ Section: Mappings {{{1
