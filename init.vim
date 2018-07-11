@@ -94,6 +94,7 @@ if has('autocmd')
   augroup FTCheck " {{{2
     autocmd!
     autocmd BufRead,BufNewFile *.nginx,*/etc/nginx/*,*/usr/local/nginx/conf/*,nginx.conf set ft=nginx
+    autocmd BufRead,BufNewFile *.tsx set ft=typescript.jsx
   augroup END " }}}2
   augroup FTOptions " {{{2
     autocmd!
