@@ -66,6 +66,8 @@ nnoremap <silent> <leader>c :Gcommit<cr>
 nnoremap <silent> <leader>s :Gstatus<cr>
 nnoremap <leader>p :Gpush<cr>
 
+nnoremap <leader>t :GFiles<cr>
+
 command! WQ wq
 command! Wq wq
 command! W w
