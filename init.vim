@@ -4,23 +4,24 @@ call minpac#init({ 'verbose': 3 })
 
 """ Section: Packages {{{1
 
+call minpac#add('w0rp/ale')
 call minpac#add('myusuf3/numbers.vim')
 call minpac#add('tpope/vim-surround')
-call minpac#add('vim-airline/vim-airline')
-call minpac#add('vim-airline/vim-airline-themes')
-call minpac#add('mxw/vim-jsx')
+call minpac#add('junegunn/fzf.vim')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('jiangmiao/auto-pairs')
-call minpac#add('isRuslan/vim-es6')
+call minpac#add('lucasecdb/vim-codedark')
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-airline/vim-airline-themes')
+call minpac#add('scrooloose/nerdtree')
+" Javascript {{{2
+
+call minpac#add('pangloss/vim-javascript')
+call minpac#add('mxw/vim-jsx')
 call minpac#add('flowtype/vim-flow')
 call minpac#add('leafgarland/typescript-vim')
-call minpac#add('pangloss/vim-javascript')
-call minpac#add('w0rp/ale')
-call minpac#add('lucasecdb/vim-codedark')
-call minpac#add('scrooloose/nerdtree')
-call minpac#add('Shougo/deoplete.nvim')
-call minpac#add('zchee/deoplete-jedi')
-call minpac#add('junegunn/fzf.vim')
+
+" }}}2
 
 """ }}}1
 """ Section: Options {{{1
@@ -85,9 +86,7 @@ let g:airline_right_sep=''
 
 let g:ale_completion_enabled=1
 
-let g:CommandTFileScanner='git'
-
-let g:deoplete#enable_at_startup=1
+let g:javascript_plugin_jsdoc = 1
 
 """}}}
 """ Section: Autocommands {{{1
