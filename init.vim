@@ -18,6 +18,7 @@ call minpac#add('scrooloose/nerdtree')
 
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('flowtype/vim-flow')
+call minpac#add('mxw/vim-jsx')
 call minpac#add('leafgarland/typescript-vim')
 call minpac#add('lucasecdb/vim-tsx')
 
@@ -97,7 +98,8 @@ if has('autocmd')
   augroup FTCheck " {{{2
     autocmd!
     autocmd BufRead,BufNewFile *.nginx,*/etc/nginx/*,*/usr/local/nginx/conf/*,nginx.conf set ft=nginx
-    autocmd BufRead,BufNewFile *.tsx set ft=typescript.jsx
+    autocmd BufRead,BufNewFile *.tsx set ft=typescript.tsx
+    autocmd BufRead,BufNewFile *.js set ft=javascript.jsx
   augroup END " }}}2
   augroup FTOptions " {{{2
     autocmd!
