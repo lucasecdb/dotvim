@@ -46,6 +46,7 @@ set cursorline
 set mouse=a
 set rtp+=/usr/local/opt/fzf
 set rtp+=~/.fzf
+set completeopt+=noinsert
 
 """ }}}1
 """ Section: Mappings {{{1
