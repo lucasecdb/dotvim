@@ -90,6 +90,11 @@ let g:ale_completion_enabled=1
 
 let g:javascript_plugin_jsdoc = 1
 
+let g:ale_linters = {
+\  'python': ['flake8'],
+\  'typescript': ['tslint', 'tsserver'],
+\}
+
 """}}}
 """ Section: Autocommands {{{1
 
@@ -105,7 +110,7 @@ if has('autocmd')
   augroup FTOptions " {{{2
     autocmd!
     autocmd FileType gitcommit setlocal spell
-    autocmd FileType python let b:ale_linters=['flake8'] | let b:ale_fixers=['autopep8']
+    autocmd FileType python let b:ale_fixers=['autopep8']
     autocmd FileType javascript let b:ale_fixers=['prettier']
     autocmd FileType nginx setlocal indentexpr= |
           \ setlocal cindent |
