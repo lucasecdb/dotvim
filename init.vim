@@ -18,6 +18,7 @@ call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('flowtype/vim-flow')
 call minpac#add('mxw/vim-jsx')
+" syntax highlight
 call minpac#add('leafgarland/typescript-vim')
 call minpac#add('lucasecdb/vim-tsx')
 
@@ -84,12 +85,14 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 
 let g:ale_completion_enabled=1
+let g:ale_fix_on_save=1
 
 let g:javascript_plugin_jsdoc = 1
 
 let g:ale_linters = {
 \  'python': ['flake8'],
 \  'typescript': ['tslint', 'tsserver'],
+\  'javascript': ['eslint', 'flow', 'flow-language-server']
 \}
 
 """}}}
