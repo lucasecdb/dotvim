@@ -13,16 +13,13 @@ call minpac#add('jiangmiao/auto-pairs')
 call minpac#add('lucasecdb/vim-codedark')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
-call minpac#add('scrooloose/nerdtree')
-" Javascript {{{2
 
+" Javascript
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('flowtype/vim-flow')
 call minpac#add('mxw/vim-jsx')
 call minpac#add('leafgarland/typescript-vim')
 call minpac#add('lucasecdb/vim-tsx')
-
-" }}}2
 
 """ }}}1
 """ Section: Options {{{1
@@ -61,9 +58,9 @@ nnoremap <silent> <c-l> <c-w>l
 nnoremap <silent> <s-l> :bnext<cr>
 nnoremap <silent> <s-h> :bprevious<cr>
 
-nnoremap <c-n> :NERDTreeToggle<cr>
 nnoremap <silent> <leader><Space> :set nohls<cr>
 nnoremap <silent> <leader>q :q<cr>
+nnoremap <silent> <leader>e :ALEFix eslint
 
 nnoremap <silent> <leader>c :Gcommit<cr>
 nnoremap <silent> <leader>s :Gstatus<cr>
@@ -96,32 +93,43 @@ let g:ale_linters = {
 \}
 
 """}}}
+""" Section: Functions {{{1
+
+function! CheckTermAndDisableNumber()
+  if &buftype ==# "terminal"
+    setlocal nonumber norelativenumber
+  endif
+endfunc
+
+"""}}}1
 """ Section: Autocommands {{{1
 
 if has('autocmd')
   filetype indent plugin on
 
-  augroup FTCheck " {{{2
+  augroup FTCheck
     autocmd!
     autocmd BufRead,BufNewFile *.nginx,*/etc/nginx/*,*/usr/local/nginx/conf/*,nginx.conf set ft=nginx
     autocmd BufRead,BufNewFile *.tsx set ft=typescript.tsx
     autocmd BufRead,BufNewFile *.js set ft=javascript.jsx
-  augroup END " }}}2
-  augroup FTOptions " {{{2
+  augroup END
+  augroup FTOptions
     autocmd!
     autocmd FileType gitcommit setlocal spell
     autocmd FileType python let b:ale_fixers=['autopep8']
-    autocmd FileType javascript let b:ale_fixers=['prettier']
+    autocmd FileType javascript let b:ale_fixers=['eslint', 'prettier']
     autocmd FileType nginx setlocal indentexpr= |
           \ setlocal cindent |
           \ setlocal cinkeys-=0#
     autocmd FileType cs setlocal shiftwidth=4 |
           \ setlocal softtabstop=4
-  augroup END " }}}2
-  augroup Term " {{{2
+  augroup END
+  augroup Term
     autocmd!
-    autocmd TermOpen * setlocal nonumber norelativenumber
-  augroup END " }}}2
+    autocmd TermOpen * :call CheckTermAndDisableNumber()
+    autocmd WinLeave * :call CheckTermAndDisableNumber()
+    autocmd WinEnter * :call CheckTermAndDisableNumber()
+  augroup END
 endif
 
 """}}}1
