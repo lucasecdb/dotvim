@@ -16,7 +16,6 @@ call minpac#add('vim-airline/vim-airline-themes')
 
 " Javascript
 call minpac#add('pangloss/vim-javascript')
-call minpac#add('flowtype/vim-flow')
 call minpac#add('mxw/vim-jsx')
 call minpac#add('leafgarland/typescript-vim')
 call minpac#add('lucasecdb/vim-tsx')
