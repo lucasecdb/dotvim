@@ -129,6 +129,8 @@ if has('autocmd')
       autocmd TermOpen * :call CheckTermAndDisableNumber()
       autocmd WinLeave * :call CheckTermAndDisableNumber()
       autocmd WinEnter * :call CheckTermAndDisableNumber()
+      autocmd BufEnter * :call CheckTermAndDisableNumber()
+      autocmd BufLeave * :call CheckTermAndDisableNumber()
     augroup END
   endif
 endif
