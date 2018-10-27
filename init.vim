@@ -76,8 +76,6 @@ command! Q q
 """ }}}1
 """ Section: Plugins options {{{1
 
-let g:flow#enable=0
-
 let g:airline_powerline_fonts=1
 let g:airline_theme='codedark'
 let g:airline_left_sep=''
@@ -91,7 +89,7 @@ let g:javascript_plugin_jsdoc = 1
 let g:ale_linters = {
 \  'python': ['flake8'],
 \  'typescript': ['tslint', 'tsserver'],
-\  'javascript': ['eslint', 'flow', 'flow-language-server']
+\  'javascript': ['eslint', 'flow']
 \}
 
 """}}}
