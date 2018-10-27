@@ -5,7 +5,6 @@ call minpac#init({ 'verbose': 3 })
 """ Section: Packages {{{1
 
 call minpac#add('w0rp/ale')
-call minpac#add('myusuf3/numbers.vim')
 call minpac#add('tpope/vim-surround')
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('tpope/vim-fugitive')
@@ -31,7 +30,7 @@ set shiftwidth=2
 set softtabstop=2
 set foldmethod=marker
 set foldopen+=jump
-set number
+set number relativenumber
 set backspace=indent,eol,start
 set clipboard=unnamedplus
 set scrolloff=3
