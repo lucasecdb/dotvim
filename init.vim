@@ -127,12 +127,14 @@ if has('autocmd')
     autocmd FileType cs setlocal shiftwidth=4 |
           \ setlocal softtabstop=4
   augroup END
-  augroup Term
-    autocmd!
-    autocmd TermOpen * :call CheckTermAndDisableNumber()
-    autocmd WinLeave * :call CheckTermAndDisableNumber()
-    autocmd WinEnter * :call CheckTermAndDisableNumber()
-  augroup END
+  if has('nvim')
+    augroup Term
+      autocmd!
+      autocmd TermOpen * :call CheckTermAndDisableNumber()
+      autocmd WinLeave * :call CheckTermAndDisableNumber()
+      autocmd WinEnter * :call CheckTermAndDisableNumber()
+    augroup END
+  endif
 endif
 
 """}}}1
