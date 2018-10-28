@@ -58,7 +58,7 @@ nnoremap <silent> <s-h> :bprevious<cr>
 
 nnoremap <silent> <leader><Space> :set nohls<cr>
 nnoremap <silent> <leader>q :q<cr>
-nnoremap <silent> <leader>e :ALEFix eslint
+nnoremap <silent> <leader>e :ALEFix eslint<cr>
 
 nnoremap <silent> <leader>c :Gcommit<cr>
 nnoremap <silent> <leader>s :Gstatus<cr>
@@ -80,7 +80,6 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 
 let g:ale_completion_enabled=1
-let g:ale_fix_on_save=1
 
 let g:javascript_plugin_jsdoc = 1
 
