@@ -12,6 +12,7 @@ call minpac#add('jiangmiao/auto-pairs')
 call minpac#add('lucasecdb/vim-codedark')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
+call minpac#add('jparise/vim-graphql')
 
 " Javascript
 call minpac#add('pangloss/vim-javascript')
@@ -86,7 +87,8 @@ let g:javascript_plugin_jsdoc = 1
 let g:ale_linters = {
 \  'python': ['flake8'],
 \  'typescript': ['tslint', 'tsserver'],
-\  'javascript': ['eslint', 'flow']
+\  'javascript': ['eslint', 'flow'],
+\  'graphql': ['gqlint']
 \}
 
 """}}}
