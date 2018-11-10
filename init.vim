@@ -1,24 +1,24 @@
-packadd minpac
-
-call minpac#init({ 'verbose': 3 })
+call plug#begin('~/.vim/plugged')
 
 """ Section: Packages {{{1
 
-call minpac#add('w0rp/ale')
-call minpac#add('tpope/vim-surround')
-call minpac#add('junegunn/fzf.vim')
-call minpac#add('tpope/vim-fugitive')
-call minpac#add('jiangmiao/auto-pairs')
-call minpac#add('lucasecdb/vim-codedark')
-call minpac#add('vim-airline/vim-airline')
-call minpac#add('vim-airline/vim-airline-themes')
-call minpac#add('jparise/vim-graphql')
+Plug 'w0rp/ale'
+Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'jiangmiao/auto-pairs'
+Plug 'lucasecdb/vim-codedark'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'jparise/vim-graphql'
 
 " Javascript
-call minpac#add('pangloss/vim-javascript')
-call minpac#add('mxw/vim-jsx')
-call minpac#add('leafgarland/typescript-vim')
-call minpac#add('lucasecdb/vim-tsx')
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'leafgarland/typescript-vim'
+Plug 'lucasecdb/vim-tsx'
+
+call plug#end()
 
 """ }}}1
 """ Section: Options {{{1
