@@ -1,7 +1,5 @@
 #!/bin/bash
 
-git submodule update --init
-
 if [ ! -f ~/.vimrc ]; then
   ln -s $PWD/init.vim ~/.vimrc
 fi
