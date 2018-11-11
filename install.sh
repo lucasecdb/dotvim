@@ -12,7 +12,7 @@ if [[ ! -d ~/.config/nvim ]]; then
 fi
 
 if which nvim &> /dev/null; then
-  nvim -c "call minpac#update()"
+  nvim -c "PlugInstall"
 else
-  vim -c "call minpac#update()"
+  vim -c "PlugInstall"
 fi
