@@ -65,7 +65,7 @@ nnoremap <silent> <leader>c :Gcommit<cr>
 nnoremap <silent> <leader>s :Gstatus<cr>
 nnoremap <leader>p :Gpush<cr>
 
-nnoremap <leader>t :GFiles<cr>
+nnoremap <leader>t :GFiles && git ls-files -o --exclude-standard<cr>
 
 command! WQ wq
 command! Wq wq
