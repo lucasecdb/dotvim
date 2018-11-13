@@ -1,3 +1,5 @@
+" vim: set foldmethod=marker foldlevel=0:
+
 call plug#begin('~/.vim/plugged')
 
 """ Section: Packages {{{1
@@ -29,8 +31,9 @@ set autoindent
 set expandtab
 set shiftwidth=2
 set softtabstop=2
-set foldmethod=marker
+set foldmethod=indent
 set foldopen+=jump
+set foldlevel=99
 set number relativenumber
 set backspace=indent,eol,start
 set clipboard=unnamedplus
