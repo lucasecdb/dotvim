@@ -52,22 +52,28 @@ set completeopt+=noinsert
 
 let mapleader=','
 
+" Window switching
 nnoremap <silent> <c-h> <c-w>h
 nnoremap <silent> <c-j> <c-w>j
 nnoremap <silent> <c-k> <c-w>k
 nnoremap <silent> <c-l> <c-w>l
 
+" Buffer switching
 nnoremap <silent> <s-l> :bnext<cr>
 nnoremap <silent> <s-h> :bprevious<cr>
 
+" Misc
 nnoremap <silent> <leader><Space> :set nohls<cr>
 nnoremap <silent> <leader>q :q<cr>
 nnoremap <silent> <leader>e :ALEFix eslint<cr>
+nnoremap <silent> <leader>h :set hidden <bar> close<cr>
 
+" Fugitive
 nnoremap <silent> <leader>c :Gcommit<cr>
 nnoremap <silent> <leader>s :Gstatus<cr>
 nnoremap <leader>p :Gpush<cr>
 
+" Fuzzy finder
 nnoremap <leader>t :GFiles && git ls-files -o --exclude-standard<cr>
 
 command! WQ wq
