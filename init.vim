@@ -13,6 +13,7 @@ Plug 'lucasecdb/vim-codedark'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jparise/vim-graphql'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Javascript
 Plug 'pangloss/vim-javascript'
