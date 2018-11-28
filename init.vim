@@ -78,6 +78,9 @@ nnoremap <leader>p :Gpush<cr>
 " Fuzzy finder
 nnoremap <leader>t :GFiles && git ls-files -o --exclude-standard<cr>
 
+" Terminal
+tnoremap <esc> <c-\><c-n>
+
 command! WQ wq
 command! Wq wq
 command! W w
