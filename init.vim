@@ -32,6 +32,8 @@ set autoindent
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+set incsearch
+set nohlsearch
 set foldmethod=indent
 set foldopen+=jump
 set foldlevel=99
@@ -64,7 +66,6 @@ nnoremap <silent> <s-l> :bnext<cr>
 nnoremap <silent> <s-h> :bprevious<cr>
 
 " Misc
-nnoremap <silent> <leader><Space> :set nohls<cr>
 nnoremap <silent> <leader>q :q<cr>
 nnoremap <silent> <leader>e :ALEFix eslint<cr>
 nnoremap <silent> <leader>h :set hidden <bar> close<cr>
