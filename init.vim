@@ -89,12 +89,10 @@ command! Q q
 """ }}}1
 """ Section: Plugins options {{{1
 
-let g:airline_powerline_fonts=1
-let g:airline_theme='codedark'
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-
-let g:ale_completion_enabled=1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'codedark'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 
 let g:javascript_plugin_jsdoc = 1
 
