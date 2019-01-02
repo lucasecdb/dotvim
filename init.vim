@@ -96,6 +96,7 @@ let g:airline_right_sep = ''
 
 let g:javascript_plugin_jsdoc = 1
 
+let g:ale_virtualtext_cursor = 1
 let g:ale_linters = {
 \  'python': ['flake8'],
 \  'typescript': ['tslint', 'tsserver'],
