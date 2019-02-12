@@ -1,5 +1,8 @@
 " vim: set foldmethod=marker foldlevel=0:
 
+" This setting must be set before ALE is loaded.
+let g:ale_completion_enabled = 1
+
 call plug#begin('~/.vim/plugged')
 
 """ Section: Packages {{{1
