@@ -135,6 +135,7 @@ if has('autocmd')
     autocmd FileType gitcommit setlocal spell
     autocmd FileType python let b:ale_fixers=['autopep8']
     autocmd FileType javascript let b:ale_fixers=['eslint', 'prettier']
+    autocmd FileType typescript let b:ale_fixers=['eslint', 'prettier']
     autocmd FileType nginx setlocal indentexpr= |
           \ setlocal cindent |
           \ setlocal cinkeys-=0#
