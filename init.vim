@@ -104,7 +104,7 @@ let g:javascript_plugin_jsdoc = 1
 let g:ale_virtualtext_cursor = 1
 let g:ale_linters = {
 \  'python': ['flake8'],
-\  'typescript': ['eslint', 'tslint', 'tsserver'],
+\  'typescript': ['eslint', 'tsserver'],
 \  'javascript': ['eslint', 'flow'],
 \  'graphql': ['gqlint']
 \}
