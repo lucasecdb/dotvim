@@ -73,7 +73,7 @@ nnoremap <silent> <leader>q :q<cr>
 nnoremap <silent> <leader>e :ALEFix eslint<cr>
 nnoremap <silent> <leader>h :set hidden <bar> close<cr>
 nnoremap <silent> <leader>d :ALEDetail<cr>
-nnoremap <c-]> :ALEGoToDefinition<cr>
+nnoremap <c-[> :ALEGoToDefinition<cr>
 
 " Fugitive
 nnoremap <silent> <leader>c :Gcommit<cr>
