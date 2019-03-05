@@ -124,12 +124,6 @@ endfunc
 if has('autocmd')
   filetype indent plugin on
 
-  augroup FTCheck
-    autocmd!
-    autocmd BufRead,BufNewFile *.nginx,*/etc/nginx/*,*/usr/local/nginx/conf/*,nginx.conf set ft=nginx
-    autocmd BufRead,BufNewFile *.tsx set ft=typescript.tsx
-    autocmd BufRead,BufNewFile *.js set ft=javascript.jsx
-  augroup END
   augroup FTOptions
     autocmd!
     autocmd FileType gitcommit setlocal spell
