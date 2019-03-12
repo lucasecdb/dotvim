@@ -44,7 +44,6 @@ set number relativenumber
 set backspace=indent,eol,start
 set clipboard=unnamedplus
 set scrolloff=3
-set laststatus=2
 set splitbelow
 set splitright
 set cursorline
@@ -52,6 +51,16 @@ set mouse=a
 set rtp+=/usr/local/opt/fzf
 set rtp+=~/.fzf
 set completeopt+=noinsert
+set nohls
+
+if exists('g:gui_oni')
+  set laststatus=0
+  set noshowmode
+  set noruler
+  set noshowcmd
+else
+  set laststatus=2
+endif
 
 """ }}}1
 """ Section: Mappings {{{1
@@ -99,7 +108,7 @@ let g:airline_theme = 'codedark'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
-let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_jsdoc=1
 
 let g:ale_virtualtext_cursor = 1
 let g:ale_linters = {
@@ -167,4 +176,3 @@ if has('syntax')
 endif
 
 """}}}1
-
