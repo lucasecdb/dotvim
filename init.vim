@@ -22,7 +22,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
-Plug 'lucasecdb/vim-tsx'
+Plug 'MaxMEllon/vim-jsx-pretty'
 
 call plug#end()
 
