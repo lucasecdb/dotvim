@@ -114,7 +114,7 @@ let g:ale_virtualtext_cursor = 1
 let g:ale_linters = {
 \  'python': ['flake8'],
 \  'typescript': ['eslint', 'tsserver'],
-\  'javascript': ['eslint', 'flow'],
+\  'javascript': ['eslint', 'flow', 'flow-language-server'],
 \  'graphql': ['gqlint']
 \}
 
