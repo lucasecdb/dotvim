@@ -3,9 +3,9 @@
 " This setting must be set before ALE is loaded.
 let g:ale_completion_enabled = 1
 
-call plug#begin('~/.vim/plugged')
-
 """ Section: Packages {{{1
+
+call plug#begin('~/.vim/plugged')
 
 Plug 'w0rp/ale'
 Plug 'tpope/vim-surround'
@@ -17,6 +17,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jparise/vim-graphql'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'meain/vim-package-json', { 'do': 'npm install' }
 
 " Javascript
 Plug 'pangloss/vim-javascript'
