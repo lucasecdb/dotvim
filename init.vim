@@ -53,6 +53,7 @@ set rtp+=/usr/local/opt/fzf
 set rtp+=~/.fzf
 set completeopt+=noinsert
 set nohls
+set ignorecase
 
 if exists('g:gui_oni')
   set laststatus=0
