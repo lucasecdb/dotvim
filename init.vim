@@ -110,8 +110,10 @@ let g:airline_theme = 'codedark'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
-let g:javascript_plugin_jsdoc=1
+let g:javascript_plugin_jsdoc = 1
 
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
 let g:ale_virtualtext_cursor = 1
 let g:ale_linters = {
 \  'python': ['flake8'],
