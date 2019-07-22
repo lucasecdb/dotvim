@@ -17,7 +17,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jparise/vim-graphql'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'meain/vim-package-json', { 'do': 'npm install' }
 
 " Javascript
 Plug 'pangloss/vim-javascript'
