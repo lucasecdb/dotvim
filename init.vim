@@ -1,13 +1,10 @@
 " vim: set foldmethod=marker foldlevel=0:
 
-" This setting must be set before ALE is loaded.
-let g:ale_completion_enabled = 1
-
 """ Section: Packages {{{1
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
@@ -53,15 +50,20 @@ set rtp+=~/.fzf
 set completeopt+=noinsert
 set nohls
 set ignorecase
+set updatetime=300
 
-if exists('g:gui_oni')
-  set laststatus=0
-  set noshowmode
-  set noruler
-  set noshowcmd
-else
-  set laststatus=2
-endif
+" Better display for messages
+set cmdheight=2
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+set laststatus=2
+
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 """ }}}1
 """ Section: Mappings {{{1
@@ -80,10 +82,31 @@ nnoremap <silent> <s-h> :bprevious<cr>
 
 " Misc
 nnoremap <silent> <leader>q :q<cr>
-nnoremap <silent> <leader>e :ALEFix eslint<cr>
 nnoremap <silent> <leader>h :set hidden <bar> close<cr>
-nnoremap <silent> <leader>d :ALEDetail<cr>
-nnoremap <leader>] :ALEGoToDefinition<cr>
+
+""" Section: CoC {{{2
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+"""}}}2
 
 " Fugitive
 nnoremap <silent> <leader>c :Gcommit<cr>
