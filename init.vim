@@ -106,6 +106,9 @@ function! s:show_documentation()
   endif
 endfunction
 
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
 """}}}2
 
 " Fugitive
@@ -169,6 +172,11 @@ if has('autocmd')
           \ setlocal cinkeys-=0#
     autocmd FileType cs setlocal shiftwidth=4 |
           \ setlocal softtabstop=4
+  augroup END
+  augroup Coc
+    autocmd!
+    " Highlight symbol under cursor on CursorHold
+    autocmd CursorHold * silent call CocActionAsync('highlight')
   augroup END
   if has('nvim')
     augroup Term
