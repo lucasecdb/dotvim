@@ -1,10 +1,20 @@
 " vim: set foldmethod=marker foldlevel=0:
 
+let g:coc_global_extensions = [
+  \'coc-tsserver',
+  \'coc-eslint',
+  \'coc-css',
+  \'coc-json',
+  \'coc-texlab',
+  \'coc-vimtex',
+  \'coc-go'
+  \]
+
 """ Section: Packages {{{1
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
