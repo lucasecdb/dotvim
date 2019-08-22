@@ -15,6 +15,7 @@ let g:coc_global_extensions = [
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/jsonc.vim'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
