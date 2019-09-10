@@ -79,7 +79,9 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 """ }}}1
 """ Section: Mappings {{{1
 
-let mapleader=','
+let mapleader=' '
+
+inoremap jk <esc>
 
 " Window switching
 nnoremap <silent> <c-h> <c-w>h
@@ -131,7 +133,7 @@ nnoremap <leader>p :Gpush<cr>
 nnoremap <leader>t :GFiles && git ls-files -o --exclude-standard<cr>
 
 " Terminal
-tnoremap <esc> <c-\><c-n>
+tnoremap jk <c-\><c-n>
 
 command! WQ wq
 command! Wq wq
