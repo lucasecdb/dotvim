@@ -22,6 +22,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
 Plug 'lucasecdb/vim-codedark'
 Plug 'vim-airline/vim-airline'
+Plug 'udalov/kotlin-vim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jparise/vim-graphql'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
