@@ -7,5 +7,6 @@
     "typescript",
     "typescriptreact"
   ],
-  "eslint.autoFixOnSave": true
+  "eslint.autoFixOnSave": true,
+  "java.errors.incompleteClasspath.severity": "ignore"
 }
