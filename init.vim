@@ -136,6 +136,10 @@ nnoremap <leader>t :GFiles && git ls-files -o --exclude-standard<cr>
 " Terminal
 tnoremap jk <c-\><c-n>
 
+" Formatters
+vnoremap <leader>fg :!prettier --stdin --stdin-filepath query.gql<cr>
+vnoremap <leader>fj :!prettier --stdin --stdin-filepath module.js<cr>
+
 command! WQ wq
 command! Wq wq
 command! W w
