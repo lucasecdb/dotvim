@@ -26,6 +26,7 @@ Plug 'udalov/kotlin-vim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jparise/vim-graphql'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'rust-lang/rust.vim'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
