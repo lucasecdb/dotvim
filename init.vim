@@ -132,6 +132,9 @@ nnoremap <silent> <leader>c :Gcommit<cr>
 nnoremap <silent> <leader>s :Gstatus<cr>
 nnoremap <leader>p :Gpush<cr>
 
+command! -bang -nargs=? -complete=dir GFiles
+  \ call fzf#vim#gitfiles(<q-args>, {'options': ['--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']})
+
 " Fuzzy finder
 nnoremap <leader>t :GFiles && git ls-files -o --exclude-standard<cr>
 
