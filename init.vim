@@ -27,7 +27,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'jparise/vim-graphql'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'rust-lang/rust.vim'
-Plug 'lucasecdb/vtex.vim'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
