@@ -7,7 +7,8 @@ let g:coc_global_extensions = [
   \'coc-json',
   \'coc-texlab',
   \'coc-vimtex',
-  \'coc-go'
+  \'coc-go',
+  \'coc-omnisharp'
   \]
 
 """ Section: Packages {{{1
