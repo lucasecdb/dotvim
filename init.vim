@@ -28,6 +28,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'jparise/vim-graphql'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'rust-lang/rust.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Javascript
 Plug 'pangloss/vim-javascript'
@@ -237,6 +238,7 @@ if has('syntax')
 
   set termguicolors
   set background=dark
+
   colorscheme codedark
 endif
 
