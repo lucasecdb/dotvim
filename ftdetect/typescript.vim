@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile *.tsx set ft=tsx
+autocmd BufRead,BufNewFile *.tsx set ft=typescript.tsx

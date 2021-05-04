@@ -1,16 +1,12 @@
 #!/bin/bash
 
-if [ ! -f ~/.vimrc ]; then
-  ln -s $PWD/init.vim ~/.vimrc
-fi
-
 if [[ ! -d ~/.config/nvim ]]; then
   mkdir -p ~/.config
   ln -s $PWD ~/.config/nvim
 fi
 
 if which nvim &> /dev/null; then
-  nvim -c "PlugInstall"
+  nvim -c "PackerSync"
 else
-  vim -c "PlugInstall"
+  echo "This repository does not work with VIM"
 fi
