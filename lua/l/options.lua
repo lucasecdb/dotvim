@@ -23,7 +23,7 @@ opt('linebreak', true, window) -- Break lines by spaces or tabs
 
 opt('number', true, window)
 opt('relativenumber', true, window)
-opt('signcolumn', 'yes', window)
+opt('signcolumn', 'number', window) -- Merge signcolumn and number column into one
 opt('showmode', false) -- Do not show mode in command line
 
 opt('list', true, window)
