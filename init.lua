@@ -13,6 +13,7 @@ require('l.options')
 require('l.commands')
 require('l.mappings')
 require('l.statusline')
+require('l.autocmds')
 
 -- Plugin configs
 require('l.plugins.treesitter')
