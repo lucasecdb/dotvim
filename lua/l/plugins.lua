@@ -7,13 +7,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
   cmd('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
 
-vim.cmd [[packadd packer.nvim]]
+cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
   -- Packer can manage itself
   use { 'wbthomason/packer.nvim', opt = true }
 
-  use { 'neoclide/coc.nvim', run = 'yarn install --frozen-lockfile' }
+  use { 'neoclide/coc.nvim', branch = 'release' }
   use 'neoclide/jsonc.vim'
   use 'tpope/vim-surround'
   use { 'junegunn/fzf', run = ':call fzf#install()' }
