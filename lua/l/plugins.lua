@@ -34,4 +34,7 @@ return require('packer').startup(function()
   use 'mxw/vim-jsx'
   use 'leafgarland/typescript-vim'
   use 'MaxMEllon/vim-jsx-pretty'
+
+  -- Coffeescript
+  use 'kchmck/vim-coffee-script'
 end)
