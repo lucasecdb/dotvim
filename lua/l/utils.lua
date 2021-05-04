@@ -1,4 +1,6 @@
 local set_opt = vim.api.nvim_set_option
+local cmd = vim.cmd
+
 local M = {}
 
 function M.opt(name, value, scopes)
@@ -29,6 +31,18 @@ function M.check_back_space()
   local col = vim.fn.col('.') - 1
 
   return col <= 0 or vim.fn.getline('.'):sub(col, col):match('%s')
+end
+
+function M.create_augroups(definitions)
+  for group_name, definition in pairs(definitions) do
+    cmd('augroup ' .. group_name)
+    cmd('autocmd!')
+    for _, def in ipairs(definition) do
+      local command = table.concat(vim.tbl_flatten{'autocmd', def}, ' ')
+      cmd(command)
+    end
+    cmd('augroup END')
+  end
 end
 
 return M
