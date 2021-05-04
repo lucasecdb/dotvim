@@ -21,4 +21,14 @@ function M.map(modes, lhs, rhs, opts)
   for _, mode in ipairs(modes) do vim.api.nvim_set_keymap(mode, lhs, rhs, opts) end
 end
 
+function M.t(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+function M.check_back_space()
+  local col = vim.fn.col('.') - 1
+
+  return col <= 0 or vim.fn.getline('.'):sub(col, col):match('%s')
+end
+
 return M
