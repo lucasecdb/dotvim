@@ -20,6 +20,6 @@ require('nvim-treesitter.configs').setup {
   },
   ensure_installed = {
     'query', 'typescript', 'javascript', 'tsx', 'json', 'rust', 'graphql', 'python',
-    'jsdoc', 'lua', 'css', 'bash', 'html', 'yaml', 'jsonc',
+    'jsdoc', 'lua', 'css', 'bash', 'html', 'yaml', 'jsonc', 'scss',
   },
 }
