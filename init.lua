@@ -14,7 +14,7 @@ require('l.commands')
 require('l.mappings')
 require('l.statusline')
 require('l.autocmds')
+require('l.colorscheme')
 
 -- Plugin configs
 require('l.plugins.treesitter')
-require('codedark').setup()

@@ -21,6 +21,7 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'jiangmiao/auto-pairs'
   use 'lucasecdb/vim-codedark'
+  use 'marko-cerovac/material.nvim'
   use 'vim-airline/vim-airline'
   use 'udalov/kotlin-vim'
   use 'vim-airline/vim-airline-themes'
