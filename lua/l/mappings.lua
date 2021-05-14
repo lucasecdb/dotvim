@@ -32,8 +32,8 @@ map('n', 'gi', '<Plug>(coc-implementation)', { silent = true, noremap = false })
 map('n', 'gr', '<Plug>(coc-references)', { silent = true, noremap = false })
 
 --   Use `[g` and `]g` to navigate diagnostics
-map('n', '[g', '<Plug>(coc-diagnostics-prev)', { silent = true, noremap = false })
-map('n', 'g]', '<Plug>(coc-diagnostics-next)', { silent = true, noremap = false })
+map('n', '[g', '<Plug>(coc-diagnostic-prev)', { silent = true, noremap = false })
+map('n', ']g', '<Plug>(coc-diagnostic-next)', { silent = true, noremap = false })
 
 function mappings.show_documentation()
   local ft = vim.bo.filetype
@@ -52,7 +52,8 @@ end
 map('n', 'K', ':call v:lua._l.mappings.show_documentation()<cr>', { silent = true })
 
 --   Remap keys for applying code action to the current buffer
-map('n', '<leader>ac', '<Plug>(coc-codeaction)', { silent = true })
+map('n', '<leader>ac', '<Plug>(coc-codeaction)', { silent = true, noremap = false })
+map('x', '<leader>ac', '<Plug>(coc-codeaction)', { silent = true, noremap = false })
 
 --   Show commands
 map('n', '<leader>oc', ':<C-u>CocList commands<cr>', { silent = true })
