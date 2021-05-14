@@ -3,7 +3,7 @@ local colors = require('material.colors')
 local condition = require('galaxyline.condition')
 local gls = gl.section
 
-gl.short_line_list = {'NvimTree','vista','dbui','packer'}
+gl.short_line_list = {'NvimTree','vista','dbui','packer', 'term'}
 
 local mode_map = {
   ['__'] = '------',
@@ -213,26 +213,27 @@ gls.right = {
 
 gls.short_line_left = {
   {
-    BufferType = {
-      provider = 'FileTypeName',
-      separator = ' ',
-      separator_highlight = {'NONE',colors.bg_alt},
-      highlight = {colors.blue,colors.bg_alt,'bold'}
-    }
-  },
-
-  {
     SFileName = {
       provider =  'SFileName',
       condition = condition.buffer_not_empty,
       highlight = {colors.fg,colors.bg_alt,'bold'}
     }
   },
-
   {
     BufferIcon = {
       provider= 'BufferIcon',
       highlight = {colors.fg,colors.bg_alt}
     }
+  },
+}
+
+gls.short_line_right = {
+  {
+    BufferType = {
+      provider = 'FileTypeName',
+      highlight = {colors.blue,colors.bg_alt,'bold'},
+      separator = ' ',
+      separator_highlight = {colors.fg, colors.bg_alt},
+    },
   },
 }
