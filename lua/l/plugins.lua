@@ -13,29 +13,33 @@ return require('packer').startup(function()
   -- Packer can manage itself
   use { 'wbthomason/packer.nvim', opt = true }
 
+  -- Base plugins
   use { 'neoclide/coc.nvim', branch = 'release' }
-  use 'neoclide/jsonc.vim'
   use 'tpope/vim-surround'
   use { 'junegunn/fzf', run = ':call fzf#install()' }
   use 'junegunn/fzf.vim'
   use 'tpope/vim-fugitive'
   use 'jiangmiao/auto-pairs'
-  use 'lucasecdb/vim-codedark'
-  use 'marko-cerovac/material.nvim'
-  use 'vim-airline/vim-airline'
-  use 'udalov/kotlin-vim'
-  use 'vim-airline/vim-airline-themes'
-  use 'jparise/vim-graphql'
   use { 'Shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
-  use 'rust-lang/rust.vim'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use {
+    'glepnir/galaxyline.nvim',
+    branch = 'main',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  }
 
-  -- Javascript
+  -- Languages
+  use 'neoclide/jsonc.vim'
+  use 'rust-lang/rust.vim'
+  use 'udalov/kotlin-vim'
+  use 'jparise/vim-graphql'
+  use 'kchmck/vim-coffee-script'
   use 'pangloss/vim-javascript'
   use 'mxw/vim-jsx'
   use 'leafgarland/typescript-vim'
   use 'MaxMEllon/vim-jsx-pretty'
 
-  -- Coffeescript
-  use 'kchmck/vim-coffee-script'
+  -- Colorschemes
+  use 'lucasecdb/vim-codedark'
+  use 'marko-cerovac/material.nvim'
 end)
