@@ -20,7 +20,6 @@ return require('packer').startup(function()
   use 'junegunn/fzf.vim'
   use 'tpope/vim-fugitive'
   use 'jiangmiao/auto-pairs'
-  use { 'Shougo/deoplete.nvim', run = ':UpdateRemotePlugins' }
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use {
     'glepnir/galaxyline.nvim',
@@ -29,15 +28,8 @@ return require('packer').startup(function()
   }
 
   -- Languages
-  use 'neoclide/jsonc.vim'
-  use 'rust-lang/rust.vim'
   use 'udalov/kotlin-vim'
-  use 'jparise/vim-graphql'
   use 'kchmck/vim-coffee-script'
-  use 'pangloss/vim-javascript'
-  use 'mxw/vim-jsx'
-  use 'leafgarland/typescript-vim'
-  use 'MaxMEllon/vim-jsx-pretty'
 
   -- Colorschemes
   use 'lucasecdb/vim-codedark'
