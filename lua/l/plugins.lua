@@ -33,5 +33,5 @@ return require('packer').startup(function()
 
   -- Colorschemes
   use 'lucasecdb/vim-codedark'
-  use 'marko-cerovac/material.nvim'
+  use 'mhartington/oceanic-next'
 end)

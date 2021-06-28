@@ -1,7 +1,9 @@
 local g = vim.g
+local opt = require('l.utils').opt
 
-g.material_style = 'deep ocean'
-g.material_italic_comments = true
-g.material_italic_functions = true
+opt('termguicolors')
 
-require('material').set()
+g.oceanic_next_terminal_bold = 1
+g.oceanic_next_terminal_italic = 1
+
+vim.api.nvim_command('colorscheme OceanicNext')

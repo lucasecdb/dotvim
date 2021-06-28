@@ -1,5 +1,5 @@
 local gl = require('galaxyline')
-local colors = require('material.colors')
+local colors = require('l.colors')
 local condition = require('galaxyline.condition')
 local gls = gl.section
 
@@ -57,7 +57,7 @@ gls.left = {
           S = colors.orange,
           [''] = colors.orange,
           -- Command-line mode
-          c = colors.purple,
+          c = colors.violet,
           cv = colors.red,
           ce = colors.red,
           -- Replace mode
