@@ -17,9 +17,9 @@ map('n', '<s-l>', ':bnext<cr>', { silent = true })
 map('n', '<s-h>', ':bprevious<cr>', { silent = true })
 
 -- Fugitive
-map('n', '<leader>c', ':Gcommit<cr>', { silent = true })
-map('n', '<leader>s', ':Gstatus<cr>', { silent = true })
-map('n', '<leader>p', ':Gpush<cr>')
+map('n', '<leader>c', ':Git commit<cr>', { silent = true })
+map('n', '<leader>s', ':Git<cr>', { silent = true })
+map('n', '<leader>p', ':Git push<cr>')
 
 -- Fuzzy finder
 map('n', '<leader>t', ':GFiles && git ls-files -o --exclude-standard<cr>')
