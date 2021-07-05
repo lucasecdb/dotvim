@@ -14,11 +14,11 @@ return require('packer').startup(function()
   use { 'wbthomason/packer.nvim', opt = true }
 
   -- Base plugins
-  use { 'neoclide/coc.nvim', branch = 'release' }
   use 'tpope/vim-surround'
+  use 'tpope/vim-repeat'
+  use 'tpope/vim-fugitive'
   use { 'junegunn/fzf', run = ':call fzf#install()' }
   use 'junegunn/fzf.vim'
-  use 'tpope/vim-fugitive'
   use 'jiangmiao/auto-pairs'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use {
@@ -26,6 +26,15 @@ return require('packer').startup(function()
     branch = 'main',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
+  use 'folke/which-key.nvim'
+
+  -- LSP
+  use 'neovim/nvim-lspconfig'
+  use 'ray-x/lsp_signature.nvim'
+  use 'kabouzeid/nvim-lspinstall'
+
+  -- Completion
+  use 'hrsh7th/nvim-compe'
 
   -- Languages
   use 'udalov/kotlin-vim'

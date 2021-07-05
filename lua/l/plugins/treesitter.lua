@@ -17,6 +17,19 @@ require('nvim-treesitter.configs').setup {
   indent = {
     enable = true,
   },
+  textobjects = {
+    select = {
+      enable  = true,
+      keymaps = {
+        ["ac"] = "@comment.outer",
+        ["ic"] = "@class.inner",
+        ["ab"] = "@block.outer",
+        ["ib"] = "@block.inner",
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+      }
+    }
+  },
   playground = {
     enable = false,
     disable = {},
