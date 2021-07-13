@@ -10,6 +10,8 @@ end
 cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
+  local use = require('packer').use
+
   -- Packer can manage itself
   use { 'wbthomason/packer.nvim', opt = true }
 
@@ -44,4 +46,7 @@ return require('packer').startup(function()
   -- Colorschemes
   use 'lucasecdb/vim-codedark'
   use 'mhartington/oceanic-next'
+
+  -- Copy from anywhere
+  use 'ojroques/vim-oscyank'
 end)
