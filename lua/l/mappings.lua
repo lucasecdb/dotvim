@@ -24,20 +24,6 @@ map('n', '<leader>p', ':Git push<cr>')
 -- Fuzzy finder
 map('n', '<leader>t', ':GFiles && git ls-files -o --exclude-standard<cr>')
 
--- LSP
-map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { silent = true, noremap = false })
-map('n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', { silent = true, noremap = false })
-map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', { silent = true, noremap = false })
-map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', { silent = true, noremap = false })
---   Use `[g` and `]g` to navigate diagnostics
-map('n', '[g', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', { silent = true, noremap = false })
-map('n', ']g', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', { silent = true, noremap = false })
-map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', { silent = true, noremap = false })
-map('n', '<leader>k', '<cmd>lua vim.lsp.buf.signature_help()<CR>', { silent = true, noremap = false }) -- Use `<leader>k` to show documentation
---   Remap keys for applying code action to the current buffer
-map('n', '<leader>ac', '<cmd>lua vim.lsp.buf.code_action()<CR>', { silent = true, noremap = false })
-map('x', '<leader>ac', '<cmd>lua vim.lsp.buf.code_action()<CR>', { silent = true, noremap = false })
-
 -- Misc
 map('n', '<leader>q', ':q<cr>')
 map('n', '<leader>h', ':set hidden <bar> close<cr>')
