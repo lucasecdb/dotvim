@@ -1,6 +1,26 @@
 local map = require('l.utils').buf_map
 
+local signature = require('lsp_signature')
+
 local function on_attach(client, bufnr)
+  signature.on_attach{
+    bind = true,
+    hint_enable = true,
+    hint_prefix = ' ',
+    hint_scheme = 'String',
+    handler_opts = {
+      border = 'single',
+    },
+    decorator = {'`', '`'},
+  }
+
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  if client.config.flags then
+    client.config.flags.allow_incremental_sync = true
+    client.config.flags.debounce_text_changes  = 100
+  end
+
   local opts = { silent = true, noremap = false }
 
   map(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
@@ -23,6 +43,13 @@ local function on_attach(client, bufnr)
     map(bufnr, 'n', '<leader>ac', [[<cmd>lua require('lspsaga.codeaction').code_action()<CR>]], opts)
     map(bufnr, 'v', '<leader>ac', [[:<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>]], opts)
     map(bufnr, 'n', '<leader>ar', [[<cmd>lua require('lspsaga.rename').rename()<CR>]], opts)
+  end
+
+  if client.resolved_capabilities.document_formatting then
+    map(bufnr, 'n', 'gq', [[<cmd>lua vim.lsp.buf.formatting()<CR>]], opts)
+  end
+  if client.resolved_capabilities.document_range_formatting then
+    map(bufnr, 'v', 'gq', [[<cmd>lua vim.lsp.buf.formatting()<CR>]], opts)
   end
 end
 
