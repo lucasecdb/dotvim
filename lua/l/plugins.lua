@@ -29,6 +29,7 @@ return require('packer').startup(function()
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
   use 'folke/which-key.nvim'
+  use 'kevinhwang91/nvim-bqf'
 
   -- LSP
   use 'neovim/nvim-lspconfig'
