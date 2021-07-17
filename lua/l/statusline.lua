@@ -88,28 +88,28 @@ gls.left = {
   {
     DiagnosticError = {
       provider = 'DiagnosticError',
-      icon = '  ',
+      icon = ' ❌ ',
       highlight = {colors.red,colors.bg_alt}
     }
   },
   {
     DiagnosticWarn = {
       provider = 'DiagnosticWarn',
-      icon = '  ',
+      icon = ' ⚠ ',
       highlight = {colors.yellow,colors.bg_alt},
     }
   },
   {
     DiagnosticHint = {
       provider = 'DiagnosticHint',
-      icon = '  ',
+      icon = ' ➰ ',
       highlight = {colors.cyan,colors.bg_alt},
     }
   },
   {
     DiagnosticInfo = {
       provider = 'DiagnosticInfo',
-      icon = '  ',
+      icon = ' ℹ ',
       highlight = {colors.blue,colors.bg_alt},
     }
   },
@@ -181,7 +181,7 @@ gls.right = {
     DiffAdd = {
       provider = 'DiffAdd',
       condition = condition.hide_in_width,
-      icon = '   ',
+      icon = ' ➕  ',
       highlight = {colors.green,colors.bg_alt},
     }
   },
@@ -189,7 +189,7 @@ gls.right = {
     DiffModified = {
       provider = 'DiffModified',
       condition = condition.hide_in_width,
-      icon = ' 柳 ',
+      icon = ' ✖ ',
       highlight = {colors.orange,colors.bg_alt},
     }
   },
@@ -197,7 +197,7 @@ gls.right = {
     DiffRemove = {
       provider = 'DiffRemove',
       condition = condition.hide_in_width,
-      icon = '   ',
+      icon = ' ➖  ',
       highlight = {colors.red,colors.bg_alt},
     }
   },
