@@ -23,6 +23,10 @@ map('n', '<leader>p', ':Git push<cr>')
 
 -- Fuzzy finder
 map('n', '<leader>t', ':GFiles && git ls-files -o --exclude-standard<cr>')
+map('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>')
+map('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>')
+map('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>')
+map('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>')
 
 -- Misc
 map('n', '<leader>q', ':q<cr>')

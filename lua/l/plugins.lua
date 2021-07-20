@@ -19,8 +19,6 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-fugitive'
-  use { 'junegunn/fzf', run = ':call fzf#install()' }
-  use 'junegunn/fzf.vim'
   use 'jiangmiao/auto-pairs'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use {
@@ -30,6 +28,14 @@ return require('packer').startup(function()
   }
   use 'folke/which-key.nvim'
   use 'kevinhwang91/nvim-bqf'
+
+  -- Fuzzy finder
+  use { 'junegunn/fzf', run = ':call fzf#install()' }
+  use 'junegunn/fzf.vim'
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+  }
 
   -- LSP
   use 'neovim/nvim-lspconfig'
