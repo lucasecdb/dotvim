@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile *.js set ft=javascript.jsx
+autocmd BufRead,BufNewFile *.js set ft=javascriptreact

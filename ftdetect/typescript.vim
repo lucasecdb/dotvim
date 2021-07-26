@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile *.tsx set ft=typescript.tsx
+autocmd BufRead,BufNewFile *.tsx set ft=typescriptreact
