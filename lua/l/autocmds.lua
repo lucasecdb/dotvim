@@ -9,4 +9,12 @@ require('l.utils').create_augroups {
   yank = {
     {'TextYankPost', '*', [[if v:event.operator is 'y' && v:event.regname is '' | OSCYankReg " | endif]]},
   },
+  format_on_save = {
+    {'BufWritePre', '*.tsx', [[lua vim.lsp.buf.formatting_sync(nil, 1000)]]},
+    {'BufWritePre', '*.jsx', [[lua vim.lsp.buf.formatting_sync(nil, 1000)]]},
+    {'BufWritePre', '*.ts', [[lua vim.lsp.buf.formatting_sync(nil, 1000)]]},
+    {'BufWritePre', '*.js', [[lua vim.lsp.buf.formatting_sync(nil, 1000)]]},
+    {'BufWritePre', '*.json', [[lua vim.lsp.buf.formatting_sync(nil, 1000)]]},
+    {'BufWritePre', '*.lua', [[lua vim.lsp.buf.formatting_sync(nil, 1000)]]},
+  }
 }

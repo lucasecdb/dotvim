@@ -21,8 +21,10 @@ return {
   filetypes = {
     "lua",
     "javascript",
+    "javascriptreact",
     "javascript.jsx",
     "typescript",
+    "typescriptreact",
     "typescript.tsx",
   },
   init_options = {
@@ -33,8 +35,10 @@ return {
     languages = {
       lua = { luaformat },
       javascript = { eslint, prettier },
+      javascriptreact = { eslint, prettier },
       ['javascript.jsx'] = { eslint, prettier },
       typescript = { eslint, prettier },
+      typescriptreact = { eslint, prettier },
       ['typescript.tsx'] = { eslint, prettier },
     },
   }

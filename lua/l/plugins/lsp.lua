@@ -36,15 +36,6 @@ local function on_attach(client, bufnr)
   map(bufnr, 'n', '<leader>ac', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   map(bufnr, 'x', '<leader>ac', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
-  -- https://github.com/glepnir/lspsaga.nvim
-  if pcall(require, 'lspsaga') then
-    map(bufnr, 'n', 'K', [[<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>]], opts)
-    map(bufnr, 'n', '<leader>K', [[<cmd>lua require('lspsaga.signaturehelp').signature_help()<CR>]], opts)
-    map(bufnr, 'n', '<leader>ac', [[<cmd>lua require('lspsaga.codeaction').code_action()<CR>]], opts)
-    map(bufnr, 'v', '<leader>ac', [[:<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>]], opts)
-    map(bufnr, 'n', '<leader>ar', [[<cmd>lua require('lspsaga.rename').rename()<CR>]], opts)
-  end
-
   if client.resolved_capabilities.document_formatting then
     map(bufnr, 'n', 'gq', [[<cmd>lua vim.lsp.buf.formatting()<CR>]], opts)
   end
@@ -100,6 +91,7 @@ local function setup_servers()
     end
     if server == 'efm' then
       config = vim.tbl_extend('force', config, require'l.lsp.efm')
+      config.capabilities.textDocument.formatting = true
     end
 
     require('lspconfig')[server].setup(config)
