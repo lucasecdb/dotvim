@@ -1,45 +1,39 @@
 local prettier = {
-  formatCommand = "prettier",
+    formatCommand = "prettier --stdin-filepath ${INPUT}",
+    formatStdin = true
 }
 
 local eslint = {
-  lintCommand = 'eslint -f visualstudio --stdin --stdin-filename ${INPUT}',
-  lintIgnoreExitCode = true,
-  lintStdin = true,
-  lintFormats = {
-    '%f(%l,%c): %tarning %m',
-    '%f(%l,%c): %rror %m',
-  },
+    lintCommand = 'eslint -f visualstudio --stdin --stdin-filename ${INPUT}',
+    lintIgnoreExitCode = true,
+    lintStdin = true,
+    lintFormats = {'%f(%l,%c): %tarning %m', '%f(%l,%c): %rror %m'}
 }
 
 local luaformat = {
-  formatCommand = "lua-format -i",
-  formatStdin = true
+    -- luarocks install --server=https://luarocks.org/dev luaformatter
+    formatCommand = "lua-format -i",
+    formatStdin = true
 }
 
 return {
-  filetypes = {
-    "lua",
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx",
-    "typescript",
-    "typescriptreact",
-    "typescript.tsx",
-  },
-  init_options = {
-    documentFormatting = true
-  },
-  settings = {
-    rootMarkers = { ".git/" },
-    languages = {
-      lua = { luaformat },
-      javascript = { eslint, prettier },
-      javascriptreact = { eslint, prettier },
-      ['javascript.jsx'] = { eslint, prettier },
-      typescript = { eslint, prettier },
-      typescriptreact = { eslint, prettier },
-      ['typescript.tsx'] = { eslint, prettier },
+    filetypes = {
+        "lua", "javascript", "javascriptreact", "javascript.jsx", "typescript",
+        "typescriptreact", "typescript.tsx"
     },
-  }
+    init_options = {
+        documentFormatting = true
+    },
+    settings = {
+        rootMarkers = {".git/"},
+        languages = {
+            lua = {luaformat},
+            javascript = {prettier, eslint},
+            javascriptreact = {prettier, eslint},
+            ['javascript.jsx'] = {prettier, eslint},
+            typescript = {prettier, eslint},
+            typescriptreact = {prettier, eslint},
+            ['typescript.tsx'] = {prettier, eslint}
+        }
+    }
 }
