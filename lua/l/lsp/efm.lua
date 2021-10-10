@@ -4,10 +4,11 @@ local prettier = {
 }
 
 local eslint = {
-    lintCommand = 'eslint -f visualstudio --stdin --stdin-filename ${INPUT}',
+    -- npm install -g eslint_d
+    lintCommand = 'eslint_d -f unix --stdin --stdin-filename ${INPUT}',
     lintIgnoreExitCode = true,
     lintStdin = true,
-    lintFormats = {'%f(%l,%c): %tarning %m', '%f(%l,%c): %rror %m'}
+    lintFormats = {"%f:%l:%c: %m"}
 }
 
 local luaformat = {
