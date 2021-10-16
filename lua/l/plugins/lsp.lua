@@ -87,27 +87,20 @@ local function make_config()
 end
 
 local function setup_servers()
-    require('lspinstall').setup()
+    local lsp_installer = require("nvim-lsp-installer")
 
-    local servers = require('lspinstall').installed_servers()
-
-    for _, server in pairs(servers) do
+    lsp_installer.on_server_ready(function(server)
         local config = make_config()
 
-        if server == 'lua' then config.settings = lua_settings end
-        if server == 'efm' then
+        if server.name == 'lua' then config.settings = lua_settings end
+        if server.name == 'efm' then
             config = vim.tbl_extend('force', config, require 'l.lsp.efm')
             config.capabilities.textDocument.formatting = true
         end
 
-        require('lspconfig')[server].setup(config)
-    end
+        server:setup(config)
+        vim.cmd [[ do User LspAttachBuffers ]]
+    end)
 end
 
 setup_servers()
-
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require('lspinstall').post_install_hook = function()
-    setup_servers() -- reload installed servers
-    vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
