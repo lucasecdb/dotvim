@@ -21,7 +21,7 @@ local function on_attach(client, bufnr)
         client.config.flags.debounce_text_changes = 100
     end
 
-    if client.name == 'typescript' then
+    if client.name == 'tsserver' then
         client.resolved_capabilities.document_formatting = false
     end
 
