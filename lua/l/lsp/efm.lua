@@ -28,7 +28,10 @@ return {
         documentFormatting = true
     },
     settings = {
-        rootMarkers = {".git/"},
+        rootMarkers = {
+            ".git/", ".prettierrc", ".eslintrc.js", ".eslintrc.json",
+            ".eslintrc"
+        },
         languages = {
             lua = {luaformat},
             javascript = {prettier, eslint},
