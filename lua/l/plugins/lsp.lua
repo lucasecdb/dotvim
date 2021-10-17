@@ -25,6 +25,10 @@ local function on_attach(client, bufnr)
         client.resolved_capabilities.document_formatting = false
     end
 
+    if client.name == 'eslint' then
+        client.resolved_capabilities.document_formatting = true
+    end
+
     local opts = {
         silent = true,
         noremap = false
