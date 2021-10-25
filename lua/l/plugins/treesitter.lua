@@ -45,6 +45,6 @@ require('nvim-treesitter.configs').setup {
     ensure_installed = {
         'query', 'typescript', 'javascript', 'tsx', 'json', 'rust', 'graphql',
         'python', 'jsdoc', 'lua', 'css', 'bash', 'html', 'yaml', 'jsonc',
-        'scss', 'toml', 'dockerfile', 'embedded_templates', 'elixir'
+        'scss', 'toml', 'dockerfile', 'embedded_templates'
     }
 }
