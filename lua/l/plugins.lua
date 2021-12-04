@@ -69,6 +69,8 @@ return require('packer').startup(function()
     -- Colorschemes
     use 'lucasecdb/vim-codedark'
     use 'mhartington/oceanic-next'
+    use 'shaunsingh/nord.nvim'
+    use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 
     -- Copy from anywhere
     use 'ojroques/vim-oscyank'
