@@ -70,7 +70,14 @@ return require('packer').startup(function()
     use 'lucasecdb/vim-codedark'
     use 'mhartington/oceanic-next'
     use 'shaunsingh/nord.nvim'
-    use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
+    use {
+        "ellisonleao/gruvbox.nvim",
+        requires = {"rktjmp/lush.nvim"}
+    }
+    use({
+        "catppuccin/nvim",
+        as = "catppuccin"
+    })
 
     -- Copy from anywhere
     use 'ojroques/vim-oscyank'
