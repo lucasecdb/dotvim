@@ -27,14 +27,7 @@ return require('packer').startup(function()
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
-    use {
-        'glepnir/galaxyline.nvim',
-        branch = 'main',
-        requires = {
-            'kyazdani42/nvim-web-devicons',
-            opt = true
-        }
-    }
+    use 'feline-nvim/feline.nvim'
     use 'folke/which-key.nvim'
     use 'kevinhwang91/nvim-bqf'
 
@@ -76,7 +69,8 @@ return require('packer').startup(function()
     }
     use({
         "catppuccin/nvim",
-        as = "catppuccin"
+        as = "catppuccin",
+        requires = {"kyazdani42/nvim-web-devicons"}
     })
 
     -- Copy from anywhere

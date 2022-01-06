@@ -5,6 +5,8 @@ local opt = require('l.utils').opt
 local buffer = {o, vim.bo}
 local window = {o, vim.wo}
 
+vim.api.nvim_set_option('termguicolors', true)
+
 -- Indentation
 opt('expandtab', true, buffer)
 opt('shiftwidth', 2, buffer)
@@ -32,6 +34,7 @@ opt('listchars', {
     'precedes:«', -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
     'trail:·' -- Dot Operator (U+22C5)
 }, window)
+
 -- Show cool character on line wrap
 opt('showbreak', '↳ ') -- DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
 opt('fillchars', 'eob: ') -- Suppress ~ at EndOfBuffer
@@ -67,7 +70,7 @@ opt('formatoptions', {
     'w', -- Trailing whitespace indicates a paragraph
     'j', -- Remove comment leader when makes sense (joining lines)
     'r', -- Insert comment leader after hitting Enter
-    'o' -- Insert comment leader after hitting `o` or `O`
+    'o', -- Insert comment leader after hitting `o` or `O`
 }, buffer)
 
 -- Messages
