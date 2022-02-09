@@ -3,16 +3,12 @@ local map = require('l.utils').buf_map
 local signature = require('lsp_signature')
 
 local function on_attach(client, bufnr)
-    signature.on_attach {
+    signature.on_attach({
         bind = true,
         hint_enable = true,
         hint_prefix = ' ',
-        hint_scheme = 'String',
-        handler_opts = {
-            border = 'single'
-        },
-        decorator = {'`', '`'}
-    }
+        handler_opts = {border = 'rounded'}
+    }, bufnr)
 
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -29,10 +25,7 @@ local function on_attach(client, bufnr)
         client.resolved_capabilities.document_formatting = true
     end
 
-    local opts = {
-        silent = true,
-        noremap = false
-    }
+    local opts = {silent = true, noremap = false}
 
     map(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
     map(bufnr, 'n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
