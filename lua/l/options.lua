@@ -4,6 +4,7 @@ local opt = require('l.utils').opt
 
 local buffer = {o, vim.bo}
 local window = {o, vim.wo}
+local global = {o, vim.go}
 
 vim.api.nvim_set_option('termguicolors', true)
 
@@ -26,11 +27,13 @@ opt('number', true, window)
 opt('relativenumber', true, window)
 opt('signcolumn', 'number', window) -- Merge signcolumn and number column into one
 opt('showmode', false) -- Do not show mode in command line
+opt('cmdheight', 0, global) -- Hide command bar when not typing commands
 
 opt('list', true, window)
 opt('listchars', {
     'nbsp:⦸', -- CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
-    'tab:  ', 'extends:»', -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
+    'tab:  ', --
+    'extends:»', -- RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
     'precedes:«', -- LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
     'trail:·' -- Dot Operator (U+22C5)
 }, window)
@@ -70,7 +73,7 @@ opt('formatoptions', {
     'w', -- Trailing whitespace indicates a paragraph
     'j', -- Remove comment leader when makes sense (joining lines)
     'r', -- Insert comment leader after hitting Enter
-    'o', -- Insert comment leader after hitting `o` or `O`
+    'o' -- Insert comment leader after hitting `o` or `O`
 }, buffer)
 
 -- Messages
@@ -99,3 +102,6 @@ opt('undofile')
 opt('undolevels', 1000)
 opt('undoreload', 10000)
 opt('shada', '!,\'1000,<50,s10,h') -- Increase the shadafile size so that history is longer
+
+-- grep
+opt('grepprg', 'rg --vimgrep')
