@@ -20,11 +20,11 @@ local function on_attach(client, bufnr)
     end
 
     if client.name == 'tsserver' then
-        client.server_capabilities.document_formatting = false
+        client.server_capabilities.documentFormattingProvider = false
     end
 
     if client.name == 'eslint' then
-        client.server_capabilities.document_formatting = true
+        client.server_capabilities.documentFormattingProvider = true
     end
 
     local opts = {
@@ -46,10 +46,10 @@ local function on_attach(client, bufnr)
     map(bufnr, 'n', '<leader>ac', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     map(bufnr, 'x', '<leader>ac', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
-    if client.server_capabilities.document_formatting then
+    if client.server_capabilities.documentFormattingProvider then
         map(bufnr, 'n', 'gq', [[<cmd>lua vim.lsp.buf.formatting()<CR>]], opts)
     end
-    if client.server_capabilities.document_range_formatting then
+    if client.server_capabilities.documentRangeFormattingProvider then
         map(bufnr, 'v', 'gq', [[<cmd>lua vim.lsp.buf.formatting()<CR>]], opts)
     end
 end
