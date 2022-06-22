@@ -47,10 +47,10 @@ local function on_attach(client, bufnr)
     map(bufnr, 'x', '<leader>ac', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
     if client.server_capabilities.documentFormattingProvider then
-        map(bufnr, 'n', 'gq', [[<cmd>lua vim.lsp.buf.formatting()<CR>]], opts)
+        map(bufnr, 'n', 'gq', [[<cmd>lua vim.lsp.buf.format { async = true }<CR>]], opts)
     end
     if client.server_capabilities.documentRangeFormattingProvider then
-        map(bufnr, 'v', 'gq', [[<cmd>lua vim.lsp.buf.formatting()<CR>]], opts)
+        map(bufnr, 'v', 'gq', [[<cmd>lua vim.lsp.buf.format { async = true }<CR>]], opts)
     end
 end
 
