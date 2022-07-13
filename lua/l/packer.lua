@@ -13,38 +13,26 @@ return require('packer').startup(function()
     local use = require('packer').use
 
     -- Packer can manage itself
-    use {
-        'wbthomason/packer.nvim',
-        opt = true
-    }
+    use {'wbthomason/packer.nvim', opt = true}
 
     -- Base plugins
-    use 'tpope/vim-surround'
+    use 'kylechui/nvim-surround'
     use 'tpope/vim-repeat'
     use 'tpope/vim-fugitive'
     use 'jiangmiao/auto-pairs'
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use 'feline-nvim/feline.nvim'
     use 'folke/which-key.nvim'
     use 'kevinhwang91/nvim-bqf'
 
     -- Fuzzy finder
-    use {
-        'junegunn/fzf',
-        run = ':call fzf#install()'
-    }
+    use {'junegunn/fzf', run = ':call fzf#install()'}
     use 'junegunn/fzf.vim'
     use {
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
     }
-    use {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        run = 'make'
-    }
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
 
     -- LSP
     use 'neovim/nvim-lspconfig'
@@ -63,10 +51,7 @@ return require('packer').startup(function()
     use 'lucasecdb/vim-codedark'
     use 'mhartington/oceanic-next'
     use 'shaunsingh/nord.nvim'
-    use {
-        "ellisonleao/gruvbox.nvim",
-        requires = {"rktjmp/lush.nvim"}
-    }
+    use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
     use({
         "catppuccin/nvim",
         as = "catppuccin",

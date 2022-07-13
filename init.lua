@@ -5,7 +5,7 @@ local g = vim.g
 g.mapleader = ' '
 
 -- Personal configs
-require('l.plugins')
+require('l.packer')
 require('l.options')
 require('l.commands')
 require('l.mappings')
@@ -19,3 +19,4 @@ require('l.plugins.lsp')
 require('l.plugins.which-key')
 require('l.plugins.compe')
 require('l.plugins.telescope')
+require('l.plugins.surround')
