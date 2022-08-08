@@ -23,27 +23,27 @@ catppuccin.setup({
     transparent_background = false,
     term_colors = false,
     styles = {
-        comments = "italic",
-        functions = "NONE",
-        keywords = "NONE",
-        strings = "NONE",
-        variables = "NONE"
+        comments = {"italic"},
+        functions = {},
+        keywords = {},
+        strings = {},
+        variables = {}
     },
     integrations = {
         treesitter = true,
         native_lsp = {
             enabled = true,
             virtual_text = {
-                errors = "italic",
-                hints = "italic",
-                warnings = "italic",
-                information = "italic"
+                errors = {"italic"},
+                hints = {"italic"},
+                warnings = {"italic"},
+                information = {"italic"}
             },
             underlines = {
-                errors = "underline",
-                hints = "underline",
-                warnings = "underline",
-                information = "underline"
+                errors = {"underline"},
+                hints = {"underline"},
+                warnings = {"underline"},
+                information = {"underline"}
             }
         },
         lsp_trouble = false,
@@ -52,15 +52,9 @@ catppuccin.setup({
         gitgutter = false,
         gitsigns = true,
         telescope = true,
-        nvimtree = {
-            enabled = false,
-            show_root = false
-        },
+        nvimtree = {enabled = false, show_root = false},
         which_key = true,
-        indent_blankline = {
-            enabled = true,
-            colored_indent_levels = false
-        },
+        indent_blankline = {enabled = true, colored_indent_levels = false},
         dashboard = true,
         neogit = false,
         vim_sneak = false,
