@@ -15,7 +15,6 @@ require('l.colorscheme')
 
 -- Plugin configs
 require('l.plugins.treesitter')
-require('l.plugins.lsp')
 require('l.plugins.which-key')
 require('l.plugins.compe')
 require('l.plugins.telescope')
