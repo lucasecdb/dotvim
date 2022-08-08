@@ -10,13 +10,8 @@ parser_config.embedded_templates = {
 }
 
 require('nvim-treesitter.configs').setup {
-    highlight = {
-        enable = true,
-        use_languagetree = true
-    },
-    indent = {
-        enable = true
-    },
+    highlight = {enable = true, use_languagetree = true},
+    indent = {enable = true},
     textobjects = {
         select = {
             enable = true,
@@ -36,12 +31,8 @@ require('nvim-treesitter.configs').setup {
         updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
         persist_queries = false -- Whether the query persists across vim sessions
     },
-    autotag = {
-        enable = true
-    },
-    context_commentstring = {
-        enable = true
-    },
+    autotag = {enable = true},
+    context_commentstring = {enable = true},
     ensure_installed = {
         'query', 'typescript', 'javascript', 'tsx', 'json', 'rust', 'graphql',
         'python', 'jsdoc', 'lua', 'css', 'bash', 'html', 'yaml', 'jsonc',

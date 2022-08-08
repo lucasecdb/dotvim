@@ -8,19 +8,13 @@ require('telescope').setup {
         sorting_strategy = 'descending',
 
         layout_strategy = 'vertical',
-        layout_config = {
-            vertical = {
-                mirror = false
-            }
-        },
+        layout_config = {vertical = {mirror = false}},
 
         winblend = 0,
         border = {},
         borderchars = {'─', '│', '─', '│', '╭', '╮', '╯', '╰'},
         color_devicons = false,
-        set_env = {
-            ['COLORTERM'] = 'truecolor'
-        }, -- default = nil,
+        set_env = {['COLORTERM'] = 'truecolor'}, -- default = nil,
 
         file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
         grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,

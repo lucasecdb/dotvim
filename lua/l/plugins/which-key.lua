@@ -25,14 +25,8 @@ require('which-key').setup {
         group = "+" -- symbol prepended to a group
     },
     layout = {
-        height = {
-            min = 4,
-            max = 25
-        }, -- min and max height of the columns
-        width = {
-            min = 20,
-            max = 50
-        }, -- min and max width of the columns
+        height = {min = 4, max = 25}, -- min and max height of the columns
+        width = {min = 20, max = 50}, -- min and max width of the columns
         spacing = 5 -- spacing between columns
     },
     hidden = {"<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ "} -- hide mapping boilerplate

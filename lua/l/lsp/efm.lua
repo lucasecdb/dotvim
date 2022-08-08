@@ -6,13 +6,6 @@ local luaformat = {
 
 return {
     filetypes = {"lua"},
-    init_options = {
-        documentFormatting = true
-    },
-    settings = {
-        rootMarkers = {".git/"},
-        languages = {
-            lua = {luaformat}
-        }
-    }
+    init_options = {documentFormatting = true},
+    settings = {rootMarkers = {".git/"}, languages = {lua = {luaformat}}}
 }
