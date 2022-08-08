@@ -7,9 +7,7 @@ local function on_attach(client, bufnr)
         bind = true,
         hint_enable = true,
         hint_prefix = ' ',
-        handler_opts = {
-            border = 'rounded'
-        }
+        handler_opts = {border = 'rounded'}
     }, bufnr)
 
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -27,10 +25,7 @@ local function on_attach(client, bufnr)
         client.server_capabilities.documentFormattingProvider = true
     end
 
-    local opts = {
-        silent = true,
-        noremap = false
-    }
+    local opts = {silent = true, noremap = false}
 
     map(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
     map(bufnr, 'n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
@@ -48,10 +43,12 @@ local function on_attach(client, bufnr)
     map(bufnr, 'x', '<leader>ac', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
     if client.server_capabilities.documentFormattingProvider then
-        map(bufnr, 'n', 'gq', [[<cmd>lua vim.lsp.buf.format { async = true }<CR>]], opts)
+        map(bufnr, 'n', 'gq',
+            [[<cmd>lua vim.lsp.buf.format { async = true }<CR>]], opts)
     end
     if client.server_capabilities.documentRangeFormattingProvider then
-        map(bufnr, 'v', 'gq', [[<cmd>lua vim.lsp.buf.format { async = true }<CR>]], opts)
+        map(bufnr, 'v', 'gq',
+            [[<cmd>lua vim.lsp.buf.format { async = true }<CR>]], opts)
     end
 end
 
@@ -106,4 +103,4 @@ local function setup_servers()
     end)
 end
 
-setup_servers()
+-- setup_servers()
