@@ -13,15 +13,33 @@ require('l.utils').create_augroups {
         }
     },
     format_on_save = {
-        {'BufWritePre', '*.tsx', [[lua vim.lsp.buf.formatting_sync(nil, 1000)]]},
-        {'BufWritePre', '*.jsx', [[lua vim.lsp.buf.formatting_sync(nil, 1000)]]},
-        {'BufWritePre', '*.ts', [[lua vim.lsp.buf.formatting_sync(nil, 1000)]]},
-        {'BufWritePre', '*.js', [[lua vim.lsp.buf.formatting_sync(nil, 1000)]]},
-        {'BufWritePre', '*.mjs', [[lua vim.lsp.buf.formatting_sync(nil, 1000)]]},
+        {
+            'BufWritePre', '*.tsx',
+            [[lua vim.lsp.buf.format({ timeout_ms = 1000 })]]
+        },
+        {
+            'BufWritePre', '*.jsx',
+            [[lua vim.lsp.buf.format({ timeout_ms = 1000 })]]
+        },
+        {
+            'BufWritePre', '*.ts',
+            [[lua vim.lsp.buf.format({ timeout_ms = 1000 })]]
+        },
+        {
+            'BufWritePre', '*.js',
+            [[lua vim.lsp.buf.format({ timeout_ms = 1000 })]]
+        },
+        {
+            'BufWritePre', '*.mjs',
+            [[lua vim.lsp.buf.format({ timeout_ms = 1000 })]]
+        },
         {
             'BufWritePre', '*.json',
-            [[lua vim.lsp.buf.formatting_sync(nil, 1000)]]
+            [[lua vim.lsp.buf.format({ timeout_ms = 1000 })]]
         },
-        {'BufWritePre', '*.lua', [[lua vim.lsp.buf.formatting_sync(nil, 1000)]]}
+        {
+            'BufWritePre', '*.lua',
+            [[lua vim.lsp.buf.format({ timeout_ms = 1000 })]]
+        }
     }
 }
