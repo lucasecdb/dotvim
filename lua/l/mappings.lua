@@ -34,13 +34,6 @@ map('n', '<leader>h', ':set hidden <bar> close<cr>')
 
 -- Insert mode
 map('i', 'jk', '<esc>') -- Go back to normal mode with jk
-map('i', '<c-space>', 'compe#complete()', {silent = true, expr = true}) -- Use <c-space> to trigger completion.
-map('i', '<cr>', 'compe#confirm(\'<CR>\')', {silent = true, expr = true})
-map('i', '<c-e>', 'compe#close(\'<C-e>\')', {silent = true, expr = true})
-map('i', '<c-f>', 'compe#scroll({ \'delta\': -4 })',
-    {silent = true, expr = true})
-map('i', '<c-d>', 'compe#scroll({ \'delta\': +4 })',
-    {silent = true, expr = true})
 
 function mappings.smart_tab()
     if vim.fn.pumvisible() == 1 then return t '<c-n>' end
