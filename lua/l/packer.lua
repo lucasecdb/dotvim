@@ -57,10 +57,6 @@ return require('packer').startup(function()
     use 'kchmck/vim-coffee-script'
 
     -- Colorschemes
-    use 'lucasecdb/vim-codedark'
-    use 'mhartington/oceanic-next'
-    use 'shaunsingh/nord.nvim'
-    use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
     use({
         "catppuccin/nvim",
         as = "catppuccin",
