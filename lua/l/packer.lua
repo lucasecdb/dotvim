@@ -33,8 +33,6 @@ return require('packer').startup(function()
     use 'kevinhwang91/nvim-bqf'
 
     -- Fuzzy finder
-    use {'junegunn/fzf', run = ':call fzf#install()'}
-    use 'junegunn/fzf.vim'
     use {
         'nvim-telescope/telescope.nvim',
         branch = '0.1.x',
