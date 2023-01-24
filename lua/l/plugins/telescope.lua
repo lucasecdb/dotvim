@@ -7,8 +7,9 @@ require('telescope').setup {
         selection_strategy = 'reset',
         sorting_strategy = 'descending',
 
-        layout_strategy = 'vertical',
-        layout_config = {vertical = {mirror = false}},
+        layout_strategy = 'flex',
+        layout_config = {vertical = {mirror = false}, center = {mirror = false}},
+        scroll_strategy = 'cycle',
 
         winblend = 0,
         border = {},
@@ -30,7 +31,7 @@ require('telescope').setup {
             -- false will only do exact matching
             fuzzy = true,
             -- override the generic sorter
-            override_generic_sorter = false,
+            override_generic_sorter = true,
             -- override the file sorter
             override_file_sorter = true,
             -- or 'ignore_case' or 'respect_case'
