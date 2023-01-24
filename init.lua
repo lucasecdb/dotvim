@@ -1,5 +1,3 @@
-_G._l = {}
-
 local g = vim.g
 
 g.mapleader = ' '

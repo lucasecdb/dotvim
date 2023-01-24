@@ -1,5 +1,3 @@
-local map = require('l.utils').buf_map
-
 local signature = require('lsp_signature')
 
 require("mason").setup({
@@ -49,30 +47,29 @@ local function on_attach(client, bufnr)
         client.server_capabilities.documentRangeFormattingProvider = true
     end
 
-    local opts = {silent = true, noremap = false}
+    local opts = {silent = true, noremap = false, buffer = bufnr}
 
-    map(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-    map(bufnr, 'n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-    map(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    map(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-    map(bufnr, 'n', 'gc', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', 'gc', vim.lsp.buf.rename, opts)
     --   Use `[g` and `]g` to navigate diagnostics
-    map(bufnr, 'n', '[g', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-    map(bufnr, 'n', ']g', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-    map(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    map(bufnr, 'n', '<leader>k', '<cmd>lua vim.lsp.buf.signature_help()<CR>',
-        opts) -- Use `<leader>k` to show documentation
+    vim.keymap.set('n', '[g', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', ']g', vim.diagnostic.goto_next, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', '<leader>k', vim.lsp.buf.signature_help, opts) -- Use `<leader>k` to show documentation
     --   Remap keys for applying code action to the current buffer
-    map(bufnr, 'n', '<leader>ac', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    map(bufnr, 'x', '<leader>ac', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    vim.keymap.set('n', '<leader>ac', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('x', '<leader>ac', vim.lsp.buf.code_action, opts)
 
     if client.server_capabilities.documentFormattingProvider then
-        map(bufnr, 'n', 'gq',
-            [[<cmd>lua vim.lsp.buf.format { async = true }<CR>]], opts)
+        vim.keymap.set('n', 'gq',
+                       function() vim.lsp.buf.format {async = true} end, opts)
     end
     if client.server_capabilities.documentRangeFormattingProvider then
-        map(bufnr, 'v', 'gq',
-            [[<cmd>lua vim.lsp.buf.format { async = true }<CR>]], opts)
+        vim.keymap.set('v', 'gq',
+                       function() vim.lsp.buf.format {async = true} end, opts)
     end
 end
 

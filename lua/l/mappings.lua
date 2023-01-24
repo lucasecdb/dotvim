@@ -1,62 +1,57 @@
-local map = require('l.utils').map
 local t = require('l.utils').t
 local check_back_space = require('l.utils').check_back_space
-
-local mappings = {}
 
 -- Normal mode
 
 -- Split switching
-map('n', '<c-h>', '<c-w>h', {silent = true})
-map('n', '<c-j>', '<c-w>j', {silent = true})
-map('n', '<c-k>', '<c-w>k', {silent = true})
-map('n', '<c-l>', '<c-w>l', {silent = true})
+vim.keymap.set('n', '<c-h>', '<c-w>h', {silent = true})
+vim.keymap.set('n', '<c-j>', '<c-w>j', {silent = true})
+vim.keymap.set('n', '<c-k>', '<c-w>k', {silent = true})
+vim.keymap.set('n', '<c-l>', '<c-w>l', {silent = true})
 
 -- Buffer switching
-map('n', '<s-l>', ':bnext<cr>', {silent = true})
-map('n', '<s-h>', ':bprevious<cr>', {silent = true})
+vim.keymap.set('n', '<s-l>', ':bnext<cr>', {silent = true})
+vim.keymap.set('n', '<s-h>', ':bprevious<cr>', {silent = true})
 
 -- Fugitive
-map('n', '<leader>c', ':Git commit<cr>', {silent = true})
-map('n', '<leader>s', ':Git<cr>', {silent = true})
-map('n', '<leader>p', ':Git push<cr>')
+vim.keymap.set('n', '<leader>c', ':Git commit<cr>', {silent = true})
+vim.keymap.set('n', '<leader>s', ':Git<cr>', {silent = true})
+vim.keymap.set('n', '<leader>p', ':Git push<cr>')
 
 -- Fuzzy finder
-map('n', '<leader>t', ':GFiles && git ls-files -o --exclude-standard<cr>')
-map('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>')
-map('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>')
-map('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>')
-map('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>')
+local telescope = require('telescope.builtin')
+
+vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
+vim.keymap.set('n', '<leader>fg', telescope.live_grep, {})
+vim.keymap.set('n', '<leader>fb', telescope.buffers, {})
+vim.keymap.set('n', '<leader>fh', telescope.help_tags, {})
 
 -- Misc
-map('n', '<leader>q', ':q<cr>')
-map('n', '<leader>h', ':set hidden <bar> close<cr>')
+vim.keymap.set('n', '<leader>q', ':q<cr>')
+vim.keymap.set('n', '<leader>h', ':set hidden <bar> close<cr>')
 
 -- Insert mode
-map('i', 'jk', '<esc>') -- Go back to normal mode with jk
+vim.keymap.set('i', 'jk', '<esc>') -- Go back to normal mode with jk
 
-function mappings.smart_tab()
+local function smart_tab()
     if vim.fn.pumvisible() == 1 then return t '<c-n>' end
 
     if check_back_space() then return t '<tab>' end
 end
 
-function mappings.shift_smart_tab()
+local function shift_smart_tab()
     if vim.fn.pumvisible() == 1 then return t '<c-p>' end
 
     return t '<c-h>'
 end
 
-map('i', '<tab>', 'v:lua._l.mappings.smart_tab()', {silent = true, expr = true})
-map('i', '<s-tab>', 'v:lua._l.mappings.shift_smart_tab()',
-    {silent = true, expr = true})
+vim.keymap.set('i', '<tab>', smart_tab, {silent = true, expr = true})
+vim.keymap.set('i', '<s-tab>', shift_smart_tab, {silent = true, expr = true})
 
 -- Terminal mode
-map('t', 'jk', [[<c-\><c-n>]])
+vim.keymap.set('t', 'jk', [[<c-\><c-n>]])
 
 -- Visual mode
-map('v', '<leader>fg', ':!prettier --parser graphql<cr>')
-map('v', '<leader>fj', ':!prettier --parser babel<cr>')
-map('v', '<leader>ft', ':!fmt -80 -s<cr>')
-
-_G._l.mappings = mappings
+vim.keymap.set('v', '<leader>fg', ':!prettier --parser graphql<cr>')
+vim.keymap.set('v', '<leader>fj', ':!prettier --parser babel<cr>')
+vim.keymap.set('v', '<leader>ft', ':!fmt -80 -s<cr>')

@@ -11,24 +11,6 @@ function M.opt(name, value, scopes)
     for _, scope in pairs(scopes) do scope[name] = value end
 end
 
-function M.map(modes, lhs, rhs, opts)
-    opts = opts or {}
-    opts.noremap = opts.noremap == nil and true or opts.noremap
-    if type(modes) == 'string' then modes = {modes} end
-    for _, mode in ipairs(modes) do
-        vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
-    end
-end
-
-function M.buf_map(bufnr, modes, lhs, rhs, opts)
-    opts = opts or {}
-    opts.noremap = opts.noremap == nil and true or opts.noremap
-    if type(modes) == 'string' then modes = {modes} end
-    for _, mode in ipairs(modes) do
-        vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, opts)
-    end
-end
-
 function M.t(str) return vim.api.nvim_replace_termcodes(str, true, true, true) end
 
 function M.check_back_space()
