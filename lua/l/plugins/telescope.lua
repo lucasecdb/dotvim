@@ -17,6 +17,8 @@ require('telescope').setup {
         color_devicons = false,
         set_env = {['COLORTERM'] = 'truecolor'}, -- default = nil,
 
+        path_display = {'smart'},
+
         file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
         grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
         qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
