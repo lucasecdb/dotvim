@@ -12,12 +12,13 @@ require("mason").setup({
 
 require("mason-lspconfig").setup({
     ensure_installed = {
-        "eslint", "tsserver", "tailwindcss", "omnisharp", "sumneko_lua"
+        "eslint", "tsserver", "tailwindcss", "omnisharp", "lua_ls", "efm",
+        "lua_formatter"
     }
 })
 
 -- LSP servers that must have document formatting capabilities disabled
-local disable_format_servers = {"sumneko_lua", "tsserver"}
+local disable_format_servers = {"lua_ls", "tsserver"}
 
 -- LSP servers that offer document formatting capabilities
 local enable_format_servers = {"eslint"}
@@ -110,7 +111,7 @@ require("mason-lspconfig").setup_handlers({
     function(server_name)
         local config = make_config()
 
-        if server_name == 'sumneko_lua' then
+        if server_name == 'sumneko_lua' or server_name == 'lua_ls' then
             config.settings = lua_settings
         end
         if server_name == 'efm' then
