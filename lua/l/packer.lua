@@ -67,7 +67,7 @@ return require('packer').startup(function()
     })
 
     -- Copy from anywhere
-    use 'ojroques/vim-oscyank'
+    use {'ojroques/nvim-osc52'}
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

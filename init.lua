@@ -10,6 +10,7 @@ require('l.mappings')
 require('l.statusline')
 require('l.autocmds')
 require('l.colorscheme')
+require('l.clipboard')
 
 -- Plugin configs
 require('l.plugins.treesitter')
