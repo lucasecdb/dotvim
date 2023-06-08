@@ -105,3 +105,6 @@ opt('shada', '!,\'1000,<50,s10,h') -- Increase the shadafile size so that histor
 
 -- grep
 opt('grepprg', 'rg --vimgrep')
+
+-- remove command bar height when not in use
+opt('cmdheight', 0)
