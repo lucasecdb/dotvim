@@ -28,7 +28,10 @@ return require('packer').startup(function()
     use 'tpope/vim-fugitive'
     use 'jiangmiao/auto-pairs'
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-    use 'feline-nvim/feline.nvim'
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
     use 'folke/which-key.nvim'
     use 'kevinhwang91/nvim-bqf'
 

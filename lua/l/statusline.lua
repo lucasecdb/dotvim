@@ -1,3 +1,7 @@
-local cat_feline = require('catppuccin.groups.integrations.feline')
-
-require('feline').setup({components = cat_feline.get()})
+require('lualine').setup({
+  options = {
+    theme = "catppuccin",
+    section_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' }
+  }
+})
