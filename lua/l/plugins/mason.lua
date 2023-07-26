@@ -17,7 +17,7 @@ require("mason-lspconfig").setup({
 })
 
 -- LSP servers that must have document formatting capabilities disabled
-local disable_format_servers = {"lua_ls", "tsserver"}
+local disable_format_servers = {"lua_ls", "tsserver", "volar"}
 
 -- LSP servers that offer document formatting capabilities
 local enable_format_servers = {"eslint"}
