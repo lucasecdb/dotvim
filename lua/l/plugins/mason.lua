@@ -117,6 +117,9 @@ require("mason-lspconfig").setup_handlers({
             config = vim.tbl_extend('force', config, require 'l.lsp.efm')
             config.capabilities.textDocument.formatting = true
         end
+        if server_name == 'jdtls' then
+            config = vim.tbl_extend('force', config, require 'l.lsp.java')
+        end
 
         require("lspconfig")[server_name].setup(config)
     end
