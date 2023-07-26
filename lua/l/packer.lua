@@ -29,8 +29,8 @@ return require('packer').startup(function()
     use 'jiangmiao/auto-pairs'
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+        'nvim-lualine/lualine.nvim',
+        requires = {'nvim-tree/nvim-web-devicons', opt = true}
     }
     use 'folke/which-key.nvim'
     use 'kevinhwang91/nvim-bqf'
