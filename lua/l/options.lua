@@ -67,7 +67,6 @@ opt('completeopt', {'noinsert', 'menuone', 'noselect'})
 -- Autoformatting
 opt('formatoptions', {
     'c', -- Auto-wrap comments
-    'a', -- Auto format paragraph
     '2', -- Use the second line's indent vale when indenting (allows indented first line)
     'q', -- Formatting comments with `gq`
     'w', -- Trailing whitespace indicates a paragraph
