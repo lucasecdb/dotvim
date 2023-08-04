@@ -17,7 +17,7 @@ require('telescope').setup {
         color_devicons = false,
         set_env = {['COLORTERM'] = 'truecolor'}, -- default = nil,
 
-        path_display = {'smart'},
+        path_display = {'truncate'},
 
         file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
         grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
@@ -39,8 +39,13 @@ require('telescope').setup {
             -- or 'ignore_case' or 'respect_case'
             -- the default case_mode is 'smart_case'
             case_mode = 'smart_case'
+        },
+        file_browser = {
+            -- disables netrw and use telescope-file-browser in its place
+            hijack_netrw = true
         }
     }
 }
 
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('file_browser')
