@@ -27,7 +27,7 @@ opt('number', true, window)
 opt('relativenumber', true, window)
 opt('signcolumn', 'number', window) -- Merge signcolumn and number column into one
 opt('showmode', false) -- Do not show mode in command line
-opt('cmdheight', 0, global) -- Hide command bar when not typing commands
+opt('cmdheight', 1, global)
 
 opt('list', true, window)
 opt('listchars', {
@@ -90,9 +90,6 @@ opt('foldmethod', 'indent')
 opt('foldopen', {'jump'})
 opt('foldlevel', 99)
 
--- Better display for messages
-opt('cmdheight', 2)
-
 -- always show signcolumns
 opt('signcolumn', 'yes')
 
@@ -104,6 +101,3 @@ opt('shada', '!,\'1000,<50,s10,h') -- Increase the shadafile size so that histor
 
 -- grep
 opt('grepprg', 'rg --vimgrep')
-
--- remove command bar height when not in use
-opt('cmdheight', 0)
