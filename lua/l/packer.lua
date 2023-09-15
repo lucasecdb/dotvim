@@ -27,13 +27,7 @@ return require('packer').startup(function()
     use 'tpope/vim-repeat'
     use 'tpope/vim-fugitive'
     use 'jiangmiao/auto-pairs'
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = {'nvim-tree/nvim-web-devicons', opt = true}
-    }
     use 'folke/which-key.nvim'
-    use 'kevinhwang91/nvim-bqf'
 
     -- Fuzzy finder
     use {
@@ -43,6 +37,23 @@ return require('packer').startup(function()
     }
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
     use {'nvim-telescope/telescope-file-browser.nvim'}
+
+    -- UI
+    use {
+        'akinsho/bufferline.nvim',
+        tag = "*",
+        requires = 'nvim-tree/nvim-web-devicons'
+    }
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = {'nvim-tree/nvim-web-devicons', opt = true}
+    }
+    use 'kevinhwang91/nvim-bqf'
+    use {
+        'utilyre/barbecue.nvim',
+        tag = "*",
+        requires = {"SmiteshP/nvim-navic", "nvim-tree/nvim-web-devicons"}
+    }
 
     -- LSP
     use 'neovim/nvim-lspconfig'
@@ -64,6 +75,7 @@ return require('packer').startup(function()
     use 'kchmck/vim-coffee-script'
 
     -- Colorschemes
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use({
         "catppuccin/nvim",
         as = "catppuccin",

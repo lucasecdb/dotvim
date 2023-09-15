@@ -21,7 +21,7 @@ require("mason-lspconfig").setup({
 local disable_format_servers = {"lua_ls", "tsserver", "volar"}
 
 -- LSP servers that offer document formatting capabilities
-local enable_format_servers = {"eslint"}
+local enable_format_servers = {"eslint", "efm", "luaformatter"}
 
 local function on_attach(client, bufnr)
     signature.on_attach({

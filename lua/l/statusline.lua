@@ -4,6 +4,7 @@ require('lualine').setup({
         section_separators = {left = '', right = ''},
         component_separators = {left = '', right = ''}
     },
+    extensions = {'quickfix'},
     sections = {
         lualine_a = {'mode'},
         lualine_b = {'FugitiveHead', 'diff', 'diagnostics'},
