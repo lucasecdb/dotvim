@@ -62,7 +62,7 @@ return require('packer').startup(function()
         requires = {"SmiteshP/nvim-navic", "nvim-tree/nvim-web-devicons"},
         config = function() require('l.plugins.barbecue') end
     }
-    use {'stevearc/oil.nvim', config = function() require('oil').setup() end}
+    use {'stevearc/oil.nvim', config = function() require('l.plugins.oil') end}
 
     -- LSP
     use 'neovim/nvim-lspconfig'
