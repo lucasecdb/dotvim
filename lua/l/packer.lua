@@ -23,17 +23,24 @@ return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
 
     -- Base plugins
-    use 'kylechui/nvim-surround'
+    use {
+        'kylechui/nvim-surround',
+        config = function() require("l.plugins.surround") end
+    }
     use 'tpope/vim-repeat'
     use 'tpope/vim-fugitive'
     use 'jiangmiao/auto-pairs'
-    use 'folke/which-key.nvim'
+    use {
+        'folke/which-key.nvim',
+        config = function() require('l.plugins.which-key') end
+    }
 
     -- Fuzzy finder
     use {
         'nvim-telescope/telescope.nvim',
         branch = '0.1.x',
-        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+        requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+        config = function() require('l.plugins.telescope') end
     }
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
     use {'nvim-telescope/telescope-file-browser.nvim'}
@@ -52,13 +59,18 @@ return require('packer').startup(function()
     use {
         'utilyre/barbecue.nvim',
         tag = "*",
-        requires = {"SmiteshP/nvim-navic", "nvim-tree/nvim-web-devicons"}
+        requires = {"SmiteshP/nvim-navic", "nvim-tree/nvim-web-devicons"},
+        config = function() require('l.plugins.barbecue') end
     }
+    use {'stevearc/oil.nvim', config = function() require('oil').setup() end}
 
     -- LSP
     use 'neovim/nvim-lspconfig'
     use 'ray-x/lsp_signature.nvim'
-    use 'williamboman/mason.nvim'
+    use {
+        'williamboman/mason.nvim',
+        config = function() require('l.plugins.mason') end
+    }
     use 'williamboman/mason-lspconfig.nvim'
 
     -- Completion
@@ -66,7 +78,7 @@ return require('packer').startup(function()
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/nvim-cmp'
+    use {'hrsh7th/nvim-cmp', config = function() require('l.plugins.cmp') end}
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/vim-vsnip-integ'
 
@@ -75,7 +87,11 @@ return require('packer').startup(function()
     use 'kchmck/vim-coffee-script'
 
     -- Colorschemes
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate',
+        config = function() require("l.plugins.treesitter") end
+    }
     use({
         "catppuccin/nvim",
         as = "catppuccin",
