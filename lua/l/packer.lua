@@ -57,7 +57,8 @@ return require('packer').startup(function()
     }
     use {
         'nvim-lualine/lualine.nvim',
-        requires = {'nvim-tree/nvim-web-devicons', opt = true}
+        requires = {'nvim-tree/nvim-web-devicons', opt = true},
+        config = function() require('l.plugins.lualine') end
     }
     use 'kevinhwang91/nvim-bqf'
     use {
@@ -99,11 +100,15 @@ return require('packer').startup(function()
     use({
         "catppuccin/nvim",
         as = "catppuccin",
-        requires = {"kyazdani42/nvim-web-devicons"}
+        requires = {"kyazdani42/nvim-web-devicons"},
+        config = function() require('l.plugins.catppuccin') end
     })
 
     -- Copy from anywhere
-    use {'ojroques/nvim-osc52'}
+    use {
+        'ojroques/nvim-osc52',
+        config = function() require('l.plugins.osc52') end
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

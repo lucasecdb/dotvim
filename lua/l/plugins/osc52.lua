@@ -13,3 +13,12 @@ vim.g.clipboard = {
 -- Now the '+' register will copy to system clipboard using OSC52
 vim.keymap.set('n', '<leader>c', '"+y')
 vim.keymap.set('n', '<leader>cc', '"+yy')
+
+-- Automatically copy to clipboard
+vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function()
+        if vim.v.event.operator == 'y' and vim.v.event.regname == '+' then
+            require('osc52').copy_register('+')
+        end
+    end
+})
