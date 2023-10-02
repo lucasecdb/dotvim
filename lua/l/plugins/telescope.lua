@@ -46,3 +46,16 @@ require('telescope').setup {
 
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('file_browser')
+
+-- Keybindings
+local telescope = require('telescope.builtin')
+
+vim.keymap.set('n', '<leader>ff',
+               function() telescope.find_files {hidden = true} end, {})
+vim.keymap.set('n', '<leader>fg', telescope.live_grep, {})
+vim.keymap.set('n', '<leader>fb', telescope.buffers, {})
+vim.keymap.set('n', '<leader>fh', telescope.help_tags, {})
+vim.keymap.set('n', '<leader>fv', telescope.treesitter, {})
+vim.keymap.set("n", '<leader>fa', function()
+    require('telescope').extensions.file_browser.file_browser()
+end)

@@ -28,7 +28,11 @@ return require('packer').startup(function()
         config = function() require("l.plugins.surround") end
     }
     use 'tpope/vim-repeat'
-    use 'tpope/vim-fugitive'
+    use {
+        'NeogitOrg/neogit',
+        requires = {'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim'},
+        config = function() require('l.plugins.neogit') end
+    }
     use 'jiangmiao/auto-pairs'
     use {
         'folke/which-key.nvim',

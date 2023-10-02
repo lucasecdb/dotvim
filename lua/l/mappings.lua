@@ -13,24 +13,6 @@ vim.keymap.set('n', '<c-l>', '<c-w>l', {silent = true})
 vim.keymap.set('n', '<s-l>', ':bnext<cr>', {silent = true})
 vim.keymap.set('n', '<s-h>', ':bprevious<cr>', {silent = true})
 
--- Fugitive
-vim.keymap.set('n', '<leader>c', ':Git commit<cr>', {silent = true})
-vim.keymap.set('n', '<leader>s', ':Git<cr>', {silent = true})
-vim.keymap.set('n', '<leader>p', ':Git push<cr>')
-
--- Fuzzy finder
-local telescope = require('telescope.builtin')
-
-vim.keymap.set('n', '<leader>ff',
-               function() telescope.find_files {hidden = true} end, {})
-vim.keymap.set('n', '<leader>fg', telescope.live_grep, {})
-vim.keymap.set('n', '<leader>fb', telescope.buffers, {})
-vim.keymap.set('n', '<leader>fh', telescope.help_tags, {})
-vim.keymap.set('n', '<leader>fv', telescope.treesitter, {})
-vim.keymap.set("n", '<leader>fa', function()
-    require('telescope').extensions.file_browser.file_browser()
-end)
-
 -- Misc
 vim.keymap.set('n', '<leader>q', ':q<cr>')
 vim.keymap.set('n', '<leader>h', ':set hidden <bar> close<cr>')
