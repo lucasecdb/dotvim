@@ -14,10 +14,13 @@ vim.keymap.set('n', '<s-l>', ':bnext<cr>', {silent = true})
 vim.keymap.set('n', '<s-h>', ':bprevious<cr>', {silent = true})
 
 -- Misc
-vim.keymap.set('n', '<leader>q', ':q<cr>')
-vim.keymap.set('n', '<leader>h', ':set hidden <bar> close<cr>')
+vim.keymap.set('n', '<leader>q', ':q<cr>', {silent = true})
+vim.keymap.set('n', '<leader>h', ':set hidden <bar> close<cr>', {silent = true})
+
+vim.keymap.set('n', '<leader>eh', ':e %:h<cr>', {silent = true})
 
 -- Insert mode
+
 vim.keymap.set('i', 'jk', '<esc>') -- Go back to normal mode with jk
 
 local function smart_tab()
