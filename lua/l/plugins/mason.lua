@@ -1,5 +1,3 @@
-local signature = require('lsp_signature')
-
 require("mason").setup({
     ui = {
         icons = {
@@ -24,13 +22,6 @@ local disable_format_servers = {"lua_ls", "tsserver", "volar"}
 local enable_format_servers = {"eslint", "efm", "luaformatter"}
 
 local function on_attach(client, bufnr)
-    signature.on_attach({
-        bind = true,
-        hint_enable = true,
-        hint_prefix = ' ',
-        handler_opts = {border = 'rounded'}
-    }, bufnr)
-
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
     if client.config.flags then

@@ -71,7 +71,6 @@ return require('packer').startup(function()
 
     -- LSP
     use 'neovim/nvim-lspconfig'
-    use 'ray-x/lsp_signature.nvim'
     use {
         'williamboman/mason.nvim',
         config = function() require('l.plugins.mason') end
