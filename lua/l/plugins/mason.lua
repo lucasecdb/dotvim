@@ -11,7 +11,7 @@ require("mason").setup({
 require("mason-lspconfig").setup({
     ensure_installed = {
         "eslint", "tsserver", "tailwindcss", "omnisharp", "lua_ls",
-        "luaformatter", "efm", "jdtls", "volar"
+        "efm", "jdtls", "volar"
     }
 })
 
