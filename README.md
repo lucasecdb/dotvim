@@ -1,6 +1,8 @@
 # Neovim config files
 
-Personal configuration files for [Neovim](https://neovim.io/). These config files doesn't work with VIM because they are written in [Lua](http://www.lua.org/), [learn more](https://teukka.tech/luanvim.html).
+Personal configuration files for [Neovim](https://neovim.io/).
+
+This config won't work with VIM because it is written in [Lua](http://www.lua.org/), [learn more](https://teukka.tech/luanvim.html).
 
 ## Installation
 
