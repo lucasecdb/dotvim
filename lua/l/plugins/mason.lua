@@ -10,8 +10,8 @@ require("mason").setup({
 
 require("mason-lspconfig").setup({
     ensure_installed = {
-        "eslint", "tsserver", "tailwindcss", "omnisharp", "lua_ls",
-        "efm", "jdtls", "volar"
+        "eslint", "tsserver", "tailwindcss", "omnisharp", "lua_ls", "efm",
+        "jdtls", "volar"
     }
 })
 
@@ -102,6 +102,9 @@ require("mason-lspconfig").setup_handlers({
     function(server_name)
         local config = make_config()
 
+        if server_name == 'tsserver' then
+            config = vim.tbl_extend('force', config, require 'l.lsp.typescript')
+        end
         if server_name == 'sumneko_lua' or server_name == 'lua_ls' then
             config.settings = lua_settings
         end

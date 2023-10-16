@@ -1,3 +1,11 @@
+local function ts_version()
+    local version = vim.g.lualine_ts_version
+
+    if version ~= nil then return string.format('v%s', version) end
+
+    return ''
+end
+
 require('lualine').setup({
     options = {
         theme = "catppuccin",
@@ -9,7 +17,7 @@ require('lualine').setup({
         lualine_a = {'mode'},
         lualine_b = {'FugitiveHead', 'diff', 'diagnostics'},
         lualine_c = {'filename'},
-        lualine_x = {'searchcount', 'selectioncount', 'filetype'},
+        lualine_x = {'searchcount', 'selectioncount', 'filetype', ts_version},
         lualine_y = {'progress'},
         lualine_z = {'location'}
     },
