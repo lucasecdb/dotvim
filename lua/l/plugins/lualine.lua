@@ -1,7 +1,7 @@
 local function ts_version()
     local version = vim.g.lualine_ts_version
 
-    if version ~= nil then return string.format('v%s', version) end
+    if version ~= nil then return string.format('TSC v%s', version) end
 
     return ''
 end
