@@ -19,6 +19,11 @@ vim.keymap.set('n', '<leader>h', ':set hidden <bar> close<cr>', {silent = true})
 
 vim.keymap.set('n', '<leader>eh', ':e %:h<cr>', {silent = true})
 
+-- Quickfix
+--
+vim.keymap.set('n', '<leader>co', ':copen<cr>', {silent = true})
+vim.keymap.set('n', '<leader>cc', ':cclose<cr>', {silent = true})
+
 -- Insert mode
 
 vim.keymap.set('i', 'jk', '<esc>') -- Go back to normal mode with jk
