@@ -1,3 +1,5 @@
+require("l.lsp.godot")
+
 require("mason").setup({
     ui = {
         icons = {
@@ -122,3 +124,5 @@ require("mason-lspconfig").setup_handlers({
         require("lspconfig")[server_name].setup(config)
     end
 })
+
+require("lspconfig").godot_lsp.setup(make_config())
