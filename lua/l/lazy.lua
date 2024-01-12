@@ -89,10 +89,6 @@ require('lazy').setup({
     {'hrsh7th/nvim-cmp', config = function() require('l.plugins.cmp') end},
     'hrsh7th/vim-vsnip', 'hrsh7th/vim-vsnip-integ',
 
-    -- Languages
-    'udalov/kotlin-vim',
-    'kchmck/vim-coffee-script',
-
     -- Colorschemes
     {
         'nvim-treesitter/nvim-treesitter',
