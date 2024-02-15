@@ -1,9 +1,10 @@
 local fn = vim.fn
 
 local home_dir = os.getenv('HOME')
-local jdtls_cache_dir = home_dir .. '/.cache/jdtls'
-local workspace_dir = jdtls_cache_dir .. '/workspace'
-local config_dir = jdtls_cache_dir .. '/config'
+
+local cache_dir = home_dir .. '/.cache/jdtls'
+local workspace_dir = cache_dir .. '/workspace'
+
 local gradle_install_dir = home_dir .. '/.gradle/caches/modules-2/files-2.1'
 
 local file_exists = function(path)
@@ -47,10 +48,6 @@ local get_cmd = function()
         if (java_agent ~= '') then table.insert(cmd, java_agent) end
     end
 
-    -- See `data directory configuration` section in the README
-    table.insert(cmd, '-configuration')
-    table.insert(cmd, config_dir)
-
     table.insert(cmd, '-data')
     table.insert(cmd, workspace_dir)
 
@@ -62,7 +59,8 @@ return {
     settings = {
         java = {
             home = os.getenv("JAVA_HOME"),
-            import = {gradle = {annotationProcessing = {enabled = true}}}
+            import = {gradle = {annotationProcessing = {enabled = true}}},
+            referencesCodeLens = {enabled = true}
         }
     }
 }
