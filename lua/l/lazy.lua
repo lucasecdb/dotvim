@@ -80,6 +80,10 @@ require('lazy').setup({
         'williamboman/mason.nvim',
         config = function() require('l.plugins.mason') end
     },
+    {
+        'mfussenegger/nvim-jdtls',
+        config = function() require('jdtls') end,
+    },
 
     -- Completion
     'hrsh7th/cmp-nvim-lsp',

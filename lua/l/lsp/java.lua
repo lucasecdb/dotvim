@@ -1,66 +1,42 @@
-local fn = vim.fn
+local status, jdtls = pcall(require, "jdtls")
 
-local home_dir = os.getenv('HOME')
+if not status then return end
 
-local cache_dir = home_dir .. '/.cache/jdtls'
-local workspace_dir = cache_dir .. '/workspace'
+local lsp_binds = require('l.lsp.keybindings')
 
-local gradle_install_dir = home_dir .. '/.gradle/caches/modules-2/files-2.1'
+local home_dir = os.getenv("HOME")
 
-local file_exists = function(path)
-    local f = io.open(path, 'r')
-    return f ~= nil and io.close(f)
-end
+local java_home = os.getenv("JAVA_HOME")
 
-local get_jar_for_lib = function(class)
-    local classpath, name = unpack(vim.split(class, ":"))
+local mason_path = vim.fn.stdpath('data') .. "/mason/"
+local jdtls_dir = mason_path .. "packages/jdtls"
+local jdtls_bin = jdtls_dir .. '/jdtls'
 
-    local lib_dir = string.format('%s/%s/%s', gradle_install_dir, classpath,
-                                  name)
-    local lib_versions = io.popen('ls -1 "' .. lib_dir .. '" | sort -r')
+local local_lombok = jdtls_dir .. '/lombok.jar'
 
-    if lib_versions == nil then return '' end
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+local workspace_dir = home_dir .. '/.workspace/' .. project_name
 
-    local i, versions = 0, {}
-    for version in lib_versions:lines() do
-        i = i + 1
-        versions[i] = version
-    end
-    lib_versions:close()
+vim.fn.mkdir(workspace_dir, "p")
 
-    if next(versions) == nil then return '' end
+local root_markers = {'gradlew', '.git', 'mvnw', 'settings.gradle'}
+local root_dir = require("jdtls.setup").find_root(root_markers)
+if root_dir == "" then return end
 
-    local jar = fn.expand(string.format('%s/%s/*/%s-%s.jar', lib_dir,
-                                        versions[1], name, versions[1]))
+local config = {
+    cmd = {
+        -- LuaFormatter off
+        jdtls_bin,
+        '--jvm-arg=-javaagent:' .. local_lombok,
+        '-data', workspace_dir
+        -- LuaFormatter on
+    },
 
-    if not file_exists(jar) then return '' end
+    root_dir = root_dir,
 
-    return string.format('--jvm-arg=-javaagent:%s', jar)
-end
+    on_attach = lsp_binds.on_attach,
 
-local libs_with_java_agent = {'org.projectlombok:lombok'}
-
-local get_cmd = function()
-    local cmd = {'jdtls'}
-
-    for _, lib in ipairs(libs_with_java_agent) do
-        local java_agent = get_jar_for_lib(lib)
-        if (java_agent ~= '') then table.insert(cmd, java_agent) end
-    end
-
-    table.insert(cmd, '-data')
-    table.insert(cmd, workspace_dir)
-
-    return cmd
-end
-
-return {
-    cmd = get_cmd(),
-    settings = {
-        java = {
-            home = os.getenv("JAVA_HOME"),
-            import = {gradle = {annotationProcessing = {enabled = true}}},
-            referencesCodeLens = {enabled = true}
-        }
-    }
+    settings = {java = {home = java_home}}
 }
+
+return config
