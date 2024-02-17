@@ -8,7 +8,8 @@ if not configs.godot_lsp then
             name = 'godot',
             cmd = function(...)
                 local hostname = vim.fn.hostname() .. '.local'
-                local ip_address = uv.getaddrinfo(hostname)[1]['addr']
+                local ip_address = os.getenv('GDScript_Address') or
+                                       uv.getaddrinfo(hostname)[1]['addr']
 
                 local port = os.getenv('GDScript_Port') or '6005'
                 local create_rpc = vim.lsp.rpc.connect(ip_address, port)
