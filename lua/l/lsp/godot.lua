@@ -7,6 +7,7 @@ if not configs.godot_lsp then
             name = 'godot',
             cmd = {'godot-wsl-lsp'},
             filetypes = {'gdscript'},
+            single_file_support = true,
             root_dir = function(fname)
                 return vim.fs.dirname(vim.fs.find({'project.godot', '.git'}, {
                     upward = true,
@@ -17,9 +18,17 @@ if not configs.godot_lsp then
                 ['gdscript_client/changeWorkspace'] = function(err, result)
                     if err then return end
 
-                    local path = result['path']
+                    local windows_path = result['path']
 
-                    vim.fn('cd', path)
+                    local handle = io.popen("wslpath '" .. windows_path .. "'")
+
+                    if handle == nil then return end
+
+                    local path = handle:read("*a")
+                    handle:close()
+
+                    vim.cmd
+                        .cd({args = {vim.trim(path)}, mods = {silent = true}})
                 end
             }
         }
