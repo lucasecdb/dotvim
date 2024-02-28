@@ -57,7 +57,7 @@ require("mason-lspconfig").setup_handlers({
         local config = make_config()
 
         if server_name == 'tsserver' then
-            config = vim.tbl_extend('force', config, require 'l.lsp.typescript')
+            config = vim.tbl_extend('force', config, require 'l.lsp.tsserver')
         end
         if server_name == 'sumneko_lua' or server_name == 'lua_ls' then
             config.settings = lua_settings
