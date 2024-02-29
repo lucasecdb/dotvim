@@ -24,5 +24,12 @@ return {
     filetypes = {
         'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue',
         'json'
+    },
+    handlers = {
+        ['$/typescriptVersion'] = function(err, result, ctx)
+            if err ~= nil then return end
+
+            vim.b[ctx.bufnr].lualine_ts_version = result.version
+        end
     }
 }

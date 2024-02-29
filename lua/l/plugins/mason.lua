@@ -68,7 +68,7 @@ require("mason-lspconfig").setup_handlers({
         end
         if server_name == 'jdtls' then return end
         if server_name == 'volar' then
-            config = vim.tbl_extend('force', config, require 'l.lsp.vue')
+            config = vim.tbl_extend('force', config, require 'l.lsp.volar')
         end
 
         require("lspconfig")[server_name].setup(config)
