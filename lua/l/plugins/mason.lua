@@ -1,3 +1,7 @@
+local debug_lsp = os.getenv("LSP_DEBUG") ~= nil
+
+if debug_lsp then vim.lsp.set_log_level('debug') end
+
 require("l.lsp.godot")
 
 local lsp_binds = require("l.lsp.keybindings")
