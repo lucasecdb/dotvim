@@ -1,10 +1,15 @@
-local g = vim.g
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
-g.mapleader = ' '
+-- Options
+require 'l.options'
 
--- Personal configs
-require('l.lazy')
-require('l.options')
-require('l.commands')
-require('l.keybindings')
-require('l.autocmds')
+-- Keybindings
+require 'l.keybindings'
+
+-- Autocommands
+require 'l.autocmds'
+
+-- Plugins
+require 'l.lazy'
+require 'l.commands'

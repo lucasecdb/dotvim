@@ -1,16 +1,16 @@
-local configure = require('l.terminal.functions').configure
+local disable_line_num = require('l.terminal.functions').disable_line_num
 
 -- Terminal configuration
-vim.api.nvim_create_autocmd('TermOpen', {callback = configure})
-vim.api.nvim_create_autocmd('WinEnter', {callback = configure})
-vim.api.nvim_create_autocmd('WinLeave', {callback = configure})
-vim.api.nvim_create_autocmd('BufEnter', {callback = configure})
-vim.api.nvim_create_autocmd('BufLeave', {callback = configure})
+vim.api.nvim_create_autocmd('TermOpen', { callback = disable_line_num })
+vim.api.nvim_create_autocmd('WinEnter', { callback = disable_line_num })
+vim.api.nvim_create_autocmd('WinLeave', { callback = disable_line_num })
+vim.api.nvim_create_autocmd('BufEnter', { callback = disable_line_num })
+vim.api.nvim_create_autocmd('BufLeave', { callback = disable_line_num })
 
--- Format on save
-vim.api.nvim_create_autocmd('BufWritePre', {
-    pattern = {
-        '*.tsx', '*.jsx', '*.ts', '*.js', '*.mjs', '*.json', '*.lua', '*.vue'
-    },
-    callback = function() vim.lsp.buf.format({timeout_ms = 1000}) end
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking text',
+  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
 })

@@ -1,112 +1,200 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system({
-        "git", "clone", "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git", "--branch=stable", -- latest stable release
-        lazypath
-    })
+  vim.fn.system {
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
+  }
 end
 vim.opt.rtp:prepend(lazypath)
 
--- LuaFormatter off
-require('lazy').setup({
-    -- Base plugins
-    {
-        'kylechui/nvim-surround',
-        version = '*',
-        event = 'VeryLazy',
-        config = function() require("l.plugins.surround") end
+require('lazy').setup {
+  -- Base plugins
+  {
+    'kylechui/nvim-surround',
+    version = '*',
+    event = 'VeryLazy',
+    config = function()
+      require 'l.plugins.surround'
+    end,
+  },
+  'tpope/vim-repeat',
+  {
+    'NeogitOrg/neogit',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'sindrets/diffview.nvim',
     },
-    'tpope/vim-repeat',
-    {
-        'NeogitOrg/neogit',
-        dependencies = {
-          'nvim-lua/plenary.nvim',
-          'sindrets/diffview.nvim',
-          'nvim-telescope/telescope.nvim',
-        },
-        config = function() require('l.plugins.neogit') end
-    },
-    'jiangmiao/auto-pairs',
-    {
-        'folke/which-key.nvim',
-        event = 'VeryLazy',
-        init = function()
-          vim.o.timeout = true
-          vim.o.timeoutlen = 300
+    config = function()
+      require 'l.plugins.neogit'
+    end,
+  },
+  'jiangmiao/auto-pairs',
+  {
+    'folke/which-key.nvim',
+    event = 'VeryLazy',
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    config = function()
+      require 'l.plugins.which-key'
+    end,
+  },
+  -- Fuzzy finder
+  {
+    'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    event = 'VimEnter',
+    dependencies = {
+      'nvim-lua/popup.nvim',
+      'nvim-lua/plenary.nvim',
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make',
+        cond = function()
+          return vim.fn.executable 'make' == 1
         end,
-        config = function() require('l.plugins.which-key') end
-    },
-    -- Fuzzy finder
-    {
-        'nvim-telescope/telescope.nvim',
-        branch = '0.1.x',
-        dependencies = {'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim'},
-        config = function() require('l.plugins.telescope') end
-    },
-    {'nvim-telescope/telescope-fzf-native.nvim', build = 'make'},
-    {
-        "nvim-telescope/telescope-file-browser.nvim",
-        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-    },
-    -- UI
-    {
-        'akinsho/bufferline.nvim',
-        version = "*",
-        dependencies = {'nvim-tree/nvim-web-devicons'}
-    },
-    {
-        'nvim-lualine/lualine.nvim',
-        dependencies = {'nvim-tree/nvim-web-devicons'},
-        config = function() require('l.plugins.lualine') end
-    },
-    'kevinhwang91/nvim-bqf',
-    {
-      "utilyre/barbecue.nvim",
-      name = "barbecue",
-      version = "*",
-      dependencies = {
-        "SmiteshP/nvim-navic",
-        "nvim-tree/nvim-web-devicons",
       },
-      config = function() require('l.plugins.barbecue') end
+      { 'nvim-telescope/telescope-ui-select.nvim' },
     },
-    {'stevearc/oil.nvim', config = function() require('l.plugins.oil') end},
+    config = function()
+      require 'l.plugins.telescope'
+    end,
+  },
+  -- UI
+  {
+    'akinsho/bufferline.nvim',
+    version = '*',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require 'l.plugins.lualine'
+    end,
+  },
+  'kevinhwang91/nvim-bqf',
+  {
+    'utilyre/barbecue.nvim',
+    name = 'barbecue',
+    version = '*',
+    dependencies = {
+      'SmiteshP/nvim-navic',
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      require 'l.plugins.barbecue'
+    end,
+  },
+  {
+    'stevearc/oil.nvim',
+    config = function()
+      require 'l.plugins.oil'
+    end,
+  },
 
-    -- LSP
+  -- LSP
+  {
     'neovim/nvim-lspconfig',
-    'williamboman/mason-lspconfig.nvim',
-    {
+    dependencies = {
+      {
         'williamboman/mason.nvim',
-        config = function() require('l.plugins.mason') end
-    },
-    {
-        'mfussenegger/nvim-jdtls',
-        config = function() require('jdtls') end,
-    },
+      },
+      'williamboman/mason-lspconfig.nvim',
 
-    -- Completion
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-cmdline',
-    {'hrsh7th/nvim-cmp', config = function() require('l.plugins.cmp') end},
-    'hrsh7th/vim-vsnip', 'hrsh7th/vim-vsnip-integ',
-
-    -- Colorschemes
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate',
-        config = function() require("l.plugins.treesitter") end
+      { 'j-hui/fidget.nvim', opts = {} },
     },
-    {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        priority = 1000,
-        config = function() require('l.plugins.catppuccin') end
-    },
+    config = function()
+      require 'l.plugins.lsp'
+    end,
+  },
+  {
+    'mfussenegger/nvim-jdtls',
+    config = function()
+      require 'jdtls'
+    end,
+  },
 
-    -- Copy from anywhere
-    {'ojroques/nvim-osc52', config = function() require('l.plugins.osc52') end}
-})
--- LuaFormatter on
+  -- Autoformat
+  {
+    'stevearc/conform.nvim',
+    opts = {
+      notify_on_error = false,
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_fallback = true,
+      },
+      formatters_by_ft = {
+        lua = { 'stylua' },
+      },
+    },
+  },
+
+  -- Completion
+  {
+    'hrsh7th/nvim-cmp',
+    event = 'InsertEnter',
+    config = function()
+      require 'l.plugins.cmp'
+    end,
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      -- Snippet Engine & its associated nvim-cmp source
+      {
+        'L3MON4D3/LuaSnip',
+        build = (function()
+          -- Build Step is needed for regex support in snippets
+          -- This step is not supported in many windows environments
+          -- Remove the below condition to re-enable on windows
+          if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
+            return
+          end
+          return 'make install_jsregexp'
+        end)(),
+      },
+      'saadparwaiz1/cmp_luasnip',
+    },
+  },
+
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    config = function()
+      require 'l.plugins.treesitter'
+    end,
+  },
+
+  -- Colorschemes
+  {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000,
+    config = function()
+      require 'l.plugins.catppuccin'
+    end,
+  },
+
+  -- Highlight todo, notes, etc in comments
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = { signs = false },
+  },
+
+  -- Copy from anywhere
+  {
+    'ojroques/nvim-osc52',
+    config = function()
+      require 'l.plugins.osc52'
+    end,
+  },
+}
