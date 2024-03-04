@@ -170,6 +170,9 @@ require('lazy').setup {
     config = function()
       require 'l.plugins.treesitter'
     end,
+    dependencies = {
+      { 'nvim-treesitter/nvim-treesitter-textobjects' },
+    },
   },
 
   -- Colorschemes
