@@ -96,6 +96,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 require 'l.lsp.godot'
 
 require('mason').setup {
+  registries = {
+    'lua:l.mason-registry.registry',
+    'github:mason-org/mason-registry',
+  },
   ui = {
     icons = {
       package_installed = '✓',
@@ -112,7 +116,6 @@ require('mason-lspconfig').setup {
     'tailwindcss',
     'omnisharp',
     'lua_ls',
-    'jdtls',
     'volar',
   },
 }
