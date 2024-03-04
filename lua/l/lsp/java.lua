@@ -4,8 +4,6 @@ if not status then
   return
 end
 
-local lsp_binds = require 'l.lsp.keybindings'
-
 local home_dir = os.getenv 'HOME'
 
 local java_home = os.getenv 'JAVA_HOME'
@@ -38,8 +36,6 @@ local config = {
   },
 
   root_dir = root_dir,
-
-  on_attach = lsp_binds.on_attach,
 
   settings = { java = { home = java_home } },
 }
