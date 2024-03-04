@@ -1,4 +1,4 @@
-local status, jdtls = pcall(require, 'jdtls')
+local status, _ = pcall(require, 'jdtls')
 
 if not status then
   return
@@ -41,7 +41,18 @@ local config = {
 
   root_dir = root_dir,
 
-  settings = { java = { home = java_home } },
+  settings = {
+    java = {
+      home = java_home,
+      jdt = {
+        ls = {
+          java = {
+            home = java_home,
+          },
+        },
+      },
+    },
+  },
 
   init_options = {
     bundles = bundles,
