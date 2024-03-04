@@ -8,8 +8,8 @@ local home_dir = os.getenv 'HOME'
 
 local java_home = os.getenv 'JAVA_HOME'
 
-local mason_path = vim.fn.stdpath 'data' .. '/mason/'
-local jdtls_dir = mason_path .. 'packages/jdtls'
+local mason_path = vim.fn.stdpath 'data' .. '/mason/packages'
+local jdtls_dir = mason_path .. '/jdtls'
 local jdtls_bin = jdtls_dir .. '/jdtls'
 
 local local_lombok = jdtls_dir .. '/lombok.jar'
@@ -25,19 +25,27 @@ if root_dir == '' then
   return
 end
 
+local bundles = {}
+
+vim.list_extend(bundles, vim.split(vim.fn.glob(mason_path .. '/vscode-java-decompiler/server/*.jar'), '\n'))
+
 local config = {
   cmd = {
-    -- LuaFormatter off
     jdtls_bin,
+    '--jvm-arg=-Dlog.protocol=true',
+    '--jvm-arg=-Dlog.level=ALL',
     '--jvm-arg=-javaagent:' .. local_lombok,
     '-data',
     workspace_dir,
-    -- LuaFormatter on
   },
 
   root_dir = root_dir,
 
   settings = { java = { home = java_home } },
+
+  init_options = {
+    bundles = bundles,
+  },
 }
 
 return config
