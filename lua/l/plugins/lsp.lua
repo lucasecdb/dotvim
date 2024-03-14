@@ -93,8 +93,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-require 'l.lsp.godot'
-
 require('mason').setup {
   registries = {
     'lua:l.mason-registry.registry',
@@ -194,4 +192,4 @@ require('mason-lspconfig').setup_handlers {
   end,
 }
 
-require('lspconfig').godot_lsp.setup(make_config())
+require('lspconfig').gdscript.setup(vim.tbl_extend('force', make_config(), require 'l.lsp.godot'))
