@@ -31,25 +31,6 @@ require('mason-lspconfig').setup {
   },
 }
 
--- Configure lua language server for neovim development
-local lua_settings = {
-  Lua = {
-    runtime = {
-      -- LuaJIT in the case of Neovim
-      version = 'LuaJIT',
-    },
-    workspace = {
-      checkThirdParty = false,
-      -- Make the server aware of Neovim runtime files
-      library = {
-        '${3rd}/luv/library',
-        unpack(vim.api.nvim_get_runtime_file('', true)),
-      },
-    },
-    completion = { callSnippet = 'Replace' },
-  },
-}
-
 -- LSP servers that must have document formatting capabilities disabled
 local disable_format_servers = { 'lua_ls', 'tsserver', 'volar' }
 
@@ -92,7 +73,7 @@ require('mason-lspconfig').setup_handlers {
       config = vim.tbl_extend('force', config, require 'l.lsp.tsserver')
     end
     if server_name == 'sumneko_lua' or server_name == 'lua_ls' then
-      config.settings = lua_settings
+      config = vim.tbl_extend('force', config, require 'l.lsp.lua')
     end
     if server_name == 'jdtls' then
       return
