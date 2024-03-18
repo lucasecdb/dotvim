@@ -5,6 +5,7 @@ if debug_lsp then
 end
 
 require 'l.lsp.autocmd'
+local lsp_options = require 'lua.l.lsp.options'
 
 require('mason').setup {
   registries = {
@@ -31,43 +32,9 @@ require('mason-lspconfig').setup {
   },
 }
 
--- LSP servers that must have document formatting capabilities disabled
-local disable_format_servers = { 'lua_ls', 'tsserver', 'volar' }
-
--- LSP servers that offer document formatting capabilities
-local enable_format_servers = { 'eslint', 'efm', 'luaformatter' }
-
-local function on_attach(client)
-  if client.config.flags then
-    client.config.flags.allow_incremental_sync = true
-    client.config.flags.debounce_text_changes = 100
-  end
-
-  if vim.tbl_contains(disable_format_servers, client.name) then
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
-  end
-
-  if vim.tbl_contains(enable_format_servers, client.name) then
-    client.server_capabilities.documentFormattingProvider = true
-    client.server_capabilities.documentRangeFormattingProvider = true
-  end
-end
-
-local function make_config()
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-  return {
-    -- enable snippet support
-    capabilities = capabilities,
-    -- map buffer local keybindings when the language server attaches
-    on_attach = on_attach,
-  }
-end
-
 require('mason-lspconfig').setup_handlers {
   function(server_name)
-    local config = make_config()
+    local config = lsp_options.make_config()
 
     if server_name == 'tsserver' then
       config = vim.tbl_extend('force', config, require 'l.lsp.tsserver')
@@ -86,4 +53,4 @@ require('mason-lspconfig').setup_handlers {
   end,
 }
 
-require('lspconfig').gdscript.setup(vim.tbl_extend('force', make_config(), require 'l.lsp.godot'))
+require('lspconfig').gdscript.setup(vim.tbl_extend('force', lsp_options.make_config(), require 'l.lsp.godot'))
