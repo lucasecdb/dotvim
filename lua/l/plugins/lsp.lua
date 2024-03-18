@@ -29,6 +29,7 @@ require('mason-lspconfig').setup {
     'omnisharp',
     'lua_ls',
     'volar',
+    'jdtls',
   },
 }
 
@@ -43,6 +44,7 @@ require('mason-lspconfig').setup_handlers {
       config = vim.tbl_extend('force', config, require 'l.lsp.lua')
     end
     if server_name == 'jdtls' then
+      -- JDTLS is configured separately using nvim-jdtls
       return
     end
     if server_name == 'volar' then
