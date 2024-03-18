@@ -5,7 +5,7 @@ if debug_lsp then
 end
 
 require 'l.lsp.autocmd'
-local lsp_options = require 'lua.l.lsp.options'
+local lsp_options = require 'l.lsp.options'
 
 require('mason').setup {
   registries = {
