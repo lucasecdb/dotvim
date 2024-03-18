@@ -10,5 +10,5 @@ local jdtls_config = require 'l.lsp.java'
 -- or attaches to an existing client & server depending on the `root_dir`.
 jdtls.start_or_attach(jdtls_config)
 
-vim.go.shiftwidth = 4
-vim.go.tabstop = 4
+vim.bo.shiftwidth = 4
+vim.bo.tabstop = 4
