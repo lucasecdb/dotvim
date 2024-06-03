@@ -120,6 +120,12 @@ require('lazy').setup {
     end,
   },
 
+  -- DAP
+  {
+    'rcarriga/nvim-dap-ui',
+    dependencies = { 'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio' },
+  },
+
   -- Autoformat
   {
     'stevearc/conform.nvim',
