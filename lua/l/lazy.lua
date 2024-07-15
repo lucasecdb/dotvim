@@ -137,6 +137,13 @@ require('lazy').setup {
       },
       formatters_by_ft = {
         lua = { 'stylua' },
+        java = { 'ignore_format' },
+      },
+      formatters = {
+        ignore_format = {
+          command = 'echo',
+          stdin = true,
+        },
       },
     },
   },
