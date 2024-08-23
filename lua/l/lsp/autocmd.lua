@@ -74,7 +74,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       --    See `:help CursorHold` for information about when this is executed
       --
       -- When you move your cursor, the highlights will be cleared (the second autocommand).
-      if client.server_capabilities.documentHighlightProvider then
+      if client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
         vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
           buffer = event.buf,
           group = cursor_hold_group,
@@ -94,6 +94,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.api.nvim_clear_autocmds { group = cursor_hold_group, buffer = event2.buf }
           end,
         })
+      end
+
+      -- The following code creates a keymap to toggle inlay hints in your
+      -- code, if the language server you are using supports them
+      --
+      -- This may be unwanted, since they displace some of your code
+      if client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+        map('<leader>th', function()
+          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
+        end, '[T]oggle Inlay [H]ints')
       end
     end
   end,
