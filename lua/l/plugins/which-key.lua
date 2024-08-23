@@ -12,13 +12,6 @@ require('which-key').setup {
       g = true, -- bindings for prefixed with g
     },
   },
-  key_labels = {
-    -- override the label used to display some keys. It doesn't effect WK in any other way.
-    -- For example:
-    ['<space>'] = 'SPC',
-    ['<cr>'] = 'RET',
-    ['<tab>'] = 'TAB',
-  },
   icons = {
     breadcrumb = '»', -- symbol used in the command line area that shows your active key combo
     separator = '➜', -- symbol used between a key and it's label
@@ -29,13 +22,17 @@ require('which-key').setup {
     width = { min = 20, max = 50 }, -- min and max width of the columns
     spacing = 5, -- spacing between columns
   },
-  hidden = { '<silent>', '<cmd>', '<Cmd>', '<CR>', 'call', 'lua', '^:', '^ ' }, -- hide mapping boilerplate
 }
 
-require('which-key').register {
-  ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-  ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-  ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-  ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-  ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+require('which-key').add {
+  { '<leader>c', group = '[C]ode' },
+  { '<leader>c_', hidden = true },
+  { '<leader>d', group = '[D]ocument' },
+  { '<leader>d_', hidden = true },
+  { '<leader>r', group = '[R]ename' },
+  { '<leader>r_', hidden = true },
+  { '<leader>s', group = '[S]earch' },
+  { '<leader>s_', hidden = true },
+  { '<leader>w', group = '[W]orkspace' },
+  { '<leader>w_', hidden = true },
 }
