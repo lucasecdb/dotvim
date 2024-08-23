@@ -23,10 +23,6 @@ return {
     new_config.init_options.typescript.tsdk = get_typescript_server_path(new_root_dir)
   end,
   filetypes = {
-    'typescript',
-    'javascript',
-    'javascriptreact',
-    'typescriptreact',
     'vue',
     'json',
   },
