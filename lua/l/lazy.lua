@@ -138,11 +138,19 @@ require('lazy').setup {
       formatters_by_ft = {
         lua = { 'stylua' },
         java = { 'ignore_format' },
+        php = { 'phpcsfixer' },
       },
       formatters = {
         ignore_format = {
           command = 'echo',
           stdin = true,
+        },
+        phpcsfixer = {
+          command = 'php-cs-fixer',
+          stdin = false,
+          args = { 'fix', '$FILENAME' },
+          cwd = require('conform.util').root_file { '.editorconfig', '.php-cs-fixer.dist.php' },
+          require_cwd = true,
         },
       },
     },
