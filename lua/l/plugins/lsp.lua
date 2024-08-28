@@ -24,12 +24,13 @@ require('mason').setup {
 require('mason-lspconfig').setup {
   ensure_installed = {
     'eslint',
-    'tsserver',
-    'tailwindcss',
-    'omnisharp',
-    'lua_ls',
-    'volar',
     'jdtls',
+    'lua_ls',
+    'omnisharp',
+    'phpactor',
+    'tailwindcss',
+    'tsserver',
+    'volar',
   },
 }
 
