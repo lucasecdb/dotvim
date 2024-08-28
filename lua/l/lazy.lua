@@ -132,24 +132,28 @@ require('lazy').setup {
     opts = {
       notify_on_error = false,
       format_on_save = {
-        timeout_ms = 500,
+        timeout_ms = 1000,
         lsp_fallback = true,
       },
       formatters_by_ft = {
         lua = { 'stylua' },
         java = { 'ignore_format' },
-        php = { 'phpcsfixer' },
+        php = { 'php_cs_fixer' },
       },
       formatters = {
         ignore_format = {
           command = 'echo',
           stdin = true,
         },
-        phpcsfixer = {
+        php_cs_fixer = {
           command = 'php-cs-fixer',
           stdin = false,
           args = { 'fix', '$FILENAME' },
-          cwd = require('conform.util').root_file { '.editorconfig', '.php-cs-fixer.dist.php' },
+          cwd = function(self, ctx)
+            local get_root = require('conform.util').root_file { '.editorconfig', '.php-cs-fixer.dist.php' }
+
+            return get_root(self, ctx)
+          end,
           require_cwd = true,
         },
       },
