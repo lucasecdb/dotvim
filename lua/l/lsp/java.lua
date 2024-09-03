@@ -1,4 +1,5 @@
 local status, _ = pcall(require, 'jdtls')
+local registry = require 'mason-registry'
 
 if not status then
   return
@@ -8,8 +9,9 @@ local home_dir = os.getenv 'HOME'
 
 local java_home = os.getenv 'JAVA_HOME'
 
-local mason_path = vim.fn.stdpath 'data' .. '/mason/packages'
-local jdtls_dir = mason_path .. '/jdtls'
+local jdtls_package = registry.get_package 'jdtls'
+local jdtls_dir = jdtls_package:get_install_path()
+
 local jdtls_bin = jdtls_dir .. '/jdtls'
 
 local local_lombok = jdtls_dir .. '/lombok.jar'
@@ -25,9 +27,24 @@ if root_dir == '' then
   return
 end
 
+local java_debug_package = registry.get_package 'java-debug-adapter'
+local java_test_package = registry.get_package 'java-test'
+local vscode_java_decompiler_package = registry.get_package 'vscode-java-decompiler'
+
 local bundles = {}
 
-vim.list_extend(bundles, vim.split(vim.fn.glob(mason_path .. '/vscode-java-decompiler/server/*.jar'), '\n'))
+vim.list_extend(bundles, vim.split(vim.fn.glob(vscode_java_decompiler_package:get_install_path() .. '/server/*.jar'), '\n'))
+
+if java_debug_package:is_installed() then
+  vim.list_extend(
+    bundles,
+    vim.split(vim.fn.glob(vim.fs.joinpath(java_debug_package:get_install_path(), '/extension/server/com.microsoft.java.debug.plugin-*.jar')), '\n')
+  )
+end
+
+if java_test_package:is_installed() then
+  vim.list_extend(bundles, vim.split(vim.fn.glob(vim.fs.joinpath(java_test_package:get_install_path(), '/extension/server/*.jar')), '\n'))
+end
 
 local config = {
   cmd = {

@@ -113,12 +113,6 @@ require('lazy').setup {
       require 'l.plugins.lsp'
     end,
   },
-  {
-    'mfussenegger/nvim-jdtls',
-    config = function()
-      require 'jdtls'
-    end,
-  },
 
   -- Lint
   {
@@ -184,6 +178,12 @@ require('lazy').setup {
       { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
       { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
     },
+  },
+  {
+    'mfussenegger/nvim-jdtls',
+    config = function()
+      require 'jdtls'
+    end,
   },
 
   -- Autoformat
