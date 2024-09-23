@@ -29,7 +29,7 @@ require('mason-lspconfig').setup {
     'omnisharp',
     'phpactor',
     'tailwindcss',
-    'tsserver',
+    'ts_ls',
     'volar',
   },
 }
@@ -38,7 +38,7 @@ require('mason-lspconfig').setup_handlers {
   function(server_name)
     local config = lsp_options.make_config()
 
-    if server_name == 'tsserver' then
+    if server_name == 'ts_ls' then
       config = vim.tbl_extend('force', config, require 'l.lsp.tsserver')
     end
     if server_name == 'sumneko_lua' or server_name == 'lua_ls' then
