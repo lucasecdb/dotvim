@@ -187,6 +187,7 @@ require('lazy').setup {
         lua = { 'stylua' },
         java = { 'ignore_format' },
         php = { 'php_cs_fixer' },
+        gdscript = { 'gdformat' },
       },
       formatters = {
         ignore_format = {
@@ -203,6 +204,11 @@ require('lazy').setup {
             return get_root(self, ctx)
           end,
           require_cwd = true,
+        },
+        gdformat = {
+          command = 'gdformat',
+          stdin = false,
+          args = { '$FILENAME' },
         },
       },
     },
