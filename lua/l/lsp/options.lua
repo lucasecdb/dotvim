@@ -4,7 +4,7 @@ local M = {}
 local disable_format_servers = { 'lua_ls', 'ts_ls', 'volar' }
 
 -- LSP servers that offer document formatting capabilities
-local enable_format_servers = { 'eslint', 'efm', 'luaformatter' }
+local enable_format_servers = { 'eslint', 'efm' }
 
 function M.on_attach(client)
   if client.config.flags then
