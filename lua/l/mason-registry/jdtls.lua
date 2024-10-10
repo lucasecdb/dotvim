@@ -1,7 +1,7 @@
 local Package = require 'mason-core.package'
 
-local timestamp = '202402151717'
-local launcher_version = '1.6.700.v20231214-2017'
+local timestamp = '202409261450'
+local launcher_version = '1.6.900.v20240613-2009'
 
 return Package.new {
   schema = 'registry+v1',
@@ -19,7 +19,7 @@ return Package.new {
     'LSP',
   },
   source = {
-    id = 'pkg:generic/eclipse/eclipse.jdt.ls@v1.33.0',
+    id = 'pkg:generic/eclipse/eclipse.jdt.ls@v1.40.0',
     download = {
       {
         target = {
@@ -65,7 +65,9 @@ return Package.new {
   share = {
     ['jdtls/lombok.jar'] = 'lombok.jar',
     ['jdtls/plugins/'] = 'plugins/',
-    ['jdtls/plugins/org.eclipse.equinox.launcher.jar'] = 'plugins/org.eclipse.equinox.launcher_' .. launcher_version .. '.jar',
+    ['jdtls/plugins/org.eclipse.equinox.launcher.jar'] = 'plugins/org.eclipse.equinox.launcher_'
+      .. launcher_version
+      .. '.jar',
     ['jdtls/config/'] = '{{source.download.config}}',
   },
 }
