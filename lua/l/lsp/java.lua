@@ -52,33 +52,23 @@ if java_debug_package:is_installed() then
 end
 
 if java_test_package:is_installed() then
-  local files = {
-    'junit-jupiter-api_*.jar',
-    'junit-jupiter-engine_*.jar',
-    'junit-jupiter-migrationsupport_*.jar',
-    'junit-jupiter-params_*.jar',
-    'junit-platform-commons_*.jar',
-    'junit-platform-engine_*.jar',
-    'junit-platform-launcher_*.jar',
-    'junit-platform-runner_*.jar',
-    'junit-platform-suite-api_*.jar',
-    'junit-platform-suite-commons_*.jar',
-    'junit-platform-suite-engine_*.jar',
-    'junit-vintage-engine_*.jar',
-    'org.apiguardian.api_*.jar',
-    'org.eclipse.jdt.junit4.runtime_*.jar',
-    'org.eclipse.jdt.junit5.runtime_*.jar',
-    'org.opentest4j_*.jar',
-    'org.jacoco.core_*.jar',
-    'com.microsoft.java.test.plugin-*.jar',
-  }
+  local package_json_path = vim.fs.joinpath(java_test_package:get_install_path(), 'extension', 'package.json')
 
-  vim.tbl_map(function(file_glob)
-    local file_list =
-      vim.fn.glob(vim.fs.joinpath(java_test_package:get_install_path(), 'extension', 'server', file_glob), true, true)
+  local package_json_pipe = io.open(package_json_path, 'r')
 
-    vim.list_extend(bundles, file_list)
-  end, files)
+  if package_json_pipe ~= nil then
+    local package_json_str = package_json_pipe:read '*a'
+
+    local package_json = vim.json.decode(package_json_str)
+
+    local extension_files = package_json['contributes']['javaExtensions']
+
+    vim.tbl_map(function(file)
+      local file_path = vim.fs.joinpath(java_test_package:get_install_path(), 'extension', file)
+
+      vim.list_extend(bundles, { vim.fs.normalize(file_path) })
+    end, extension_files)
+  end
 end
 
 local config = {
