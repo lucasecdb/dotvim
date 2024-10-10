@@ -33,17 +33,52 @@ local vscode_java_decompiler_package = registry.get_package 'vscode-java-decompi
 
 local bundles = {}
 
-vim.list_extend(bundles, vim.split(vim.fn.glob(vscode_java_decompiler_package:get_install_path() .. '/server/*.jar'), '\n'))
+vim.list_extend(bundles, vim.fn.glob(vscode_java_decompiler_package:get_install_path() .. '/server/*.jar', true, true))
 
 if java_debug_package:is_installed() then
   vim.list_extend(
     bundles,
-    vim.split(vim.fn.glob(vim.fs.joinpath(java_debug_package:get_install_path(), '/extension/server/com.microsoft.java.debug.plugin-*.jar')), '\n')
+    vim.fn.glob(
+      vim.fs.joinpath(
+        java_debug_package:get_install_path(),
+        'extension',
+        'server',
+        'com.microsoft.java.debug.plugin-*.jar'
+      ),
+      true,
+      true
+    )
   )
 end
 
 if java_test_package:is_installed() then
-  vim.list_extend(bundles, vim.split(vim.fn.glob(vim.fs.joinpath(java_test_package:get_install_path(), '/extension/server/*.jar')), '\n'))
+  local files = {
+    'junit-jupiter-api_*.jar',
+    'junit-jupiter-engine_*.jar',
+    'junit-jupiter-migrationsupport_*.jar',
+    'junit-jupiter-params_*.jar',
+    'junit-platform-commons_*.jar',
+    'junit-platform-engine_*.jar',
+    'junit-platform-launcher_*.jar',
+    'junit-platform-runner_*.jar',
+    'junit-platform-suite-api_*.jar',
+    'junit-platform-suite-commons_*.jar',
+    'junit-platform-suite-engine_*.jar',
+    'junit-vintage-engine_*.jar',
+    'org.apiguardian.api_*.jar',
+    'org.eclipse.jdt.junit4.runtime_*.jar',
+    'org.eclipse.jdt.junit5.runtime_*.jar',
+    'org.opentest4j_*.jar',
+    'org.jacoco.core_*.jar',
+    'com.microsoft.java.test.plugin-*.jar',
+  }
+
+  vim.tbl_map(function(file_glob)
+    local file_list =
+      vim.fn.glob(vim.fs.joinpath(java_test_package:get_install_path(), 'extension', 'server', file_glob), true, true)
+
+    vim.list_extend(bundles, file_list)
+  end, files)
 end
 
 local config = {
