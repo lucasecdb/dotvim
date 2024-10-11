@@ -98,7 +98,7 @@ return {
                   skipFiles = { '<node_internals>/**', '**/node_modules/**' },
                   program = '${workspaceFolder}/node_modules/vitest/vitest.mjs',
                   cwd = '${workspaceFolder}',
-                  args = { 'run', '${file}' },
+                  args = { 'run', '${file}', '--test-timeout', '999999' },
                   smartStep = true,
                   console = 'neverOpen',
                 },
