@@ -97,7 +97,7 @@ local config = {
           },
           {
             name = 'JavaSE-21',
-            path = '~/.sdkman/candidates/java/current/',
+            path = '~/.sdkman/candidates/java/21.0.4-tem/',
           },
         },
       },
