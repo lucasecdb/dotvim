@@ -86,10 +86,18 @@ local config = {
   settings = {
     java = {
       home = java_home,
-      jdt = {
-        ls = {
-          java = {
-            home = java_home,
+      format = {
+        enabled = false,
+      },
+      configuration = {
+        runtimes = {
+          {
+            name = 'JavaSE-17',
+            path = '~/.sdkman/candidates/java/17.0.12-tem/',
+          },
+          {
+            name = 'JavaSE-21',
+            path = '~/.sdkman/candidates/java/current/',
           },
         },
       },
