@@ -49,7 +49,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [a]ction')
 
     -- WARN: This is not Goto Definition, this is Goto Declaration.
-    --  For example, in C this would take you to the header
+    -- For example, in C this would take you to the header
     map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
     local client = vim.lsp.get_client_by_id(event.data.client_id)
