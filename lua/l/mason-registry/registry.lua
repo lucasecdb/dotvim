@@ -1,3 +1,3 @@
 return {
-  jdtls = 'l.mason-registry.jdtls',
+  jdtls = 'l.mason-registry.jdtls-package',
 }
