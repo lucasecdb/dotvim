@@ -1,4 +1,4 @@
-local status, _ = pcall(require, 'jdtls')
+local status, jdtls = pcall(require, 'jdtls')
 local registry = require 'mason-registry'
 
 if not status then
@@ -108,9 +108,12 @@ local config = {
     bundles = bundles,
   },
 
-  on_attach = function(client)
+  on_attach = function(client, bufnr)
     client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
+
+    vim.keymap.set('n', '<leader>df', jdtls.test_class, { buffer = bufnr, desc = '[D]ebug [F]ull' })
+    vim.keymap.set('n', '<leader>dn', jdtls.test_nearest_method, { buffer = bufnr, desc = '[D]ebug [N]earest Method' })
   end,
 }
 
