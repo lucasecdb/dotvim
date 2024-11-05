@@ -65,7 +65,7 @@ vim.keymap.set('n', '<leader>sf', function()
     builtin.find_files()
   else
     builtin.git_files {
-      cwd = result[0],
+      cwd = vim.fs.dirname(result[1]),
       show_untracked = true,
     }
   end
