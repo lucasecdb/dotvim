@@ -48,7 +48,28 @@ local builtin = require 'telescope.builtin'
 
 vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<leader>sf', function()
+  local bufnr = vim.fn.bufnr()
+
+  local fname = ''
+
+  if bufnr ~= -1 then
+    fname = vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr))
+  else
+    fname = vim.fn.getcwd()
+  end
+
+  local result = vim.fs.find({ '.git' }, { upward = true, path = fname })
+
+  if #result == 0 then
+    builtin.find_files()
+  else
+    builtin.git_files {
+      cwd = result[0],
+      show_untracked = true,
+    }
+  end
+end, { desc = '[S]earch [F]iles' })
 vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
 vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
