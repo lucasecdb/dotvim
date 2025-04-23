@@ -229,4 +229,11 @@ require('lazy').setup {
       require 'l.plugins.osc52'
     end,
   },
+
+  {
+    'echasnovski/mini.ai',
+    config = function()
+      require 'l.plugins.mini-ai'
+    end,
+  },
 }
