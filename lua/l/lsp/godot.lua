@@ -1,5 +1,5 @@
 return {
-  cmd = { 'godot-wsl-lsp' },
+  cmd = { 'godot-wsl-lsp', '--useMirroredNetworking' },
   handlers = {
     ['gdscript_client/changeWorkspace'] = function(err, result)
       if err then
