@@ -113,6 +113,7 @@ local config = {
             wrapper = {
               checksums = {
                 { sha256 = '81a82aaea5abcc8ff68b3dfcb58b3c3c429378efd98e7433460610fecd7ae45f', allowed = true },
+                { sha256 = '7d3a4ac4de1c32b59bc6a4eb8ecb8e612ccd0cf1ae1e99f66902da64df296172', allowed = true },
               },
             },
           },
