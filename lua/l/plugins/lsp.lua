@@ -8,10 +8,6 @@ require 'l.lsp.autocmd'
 local lsp_options = require 'l.lsp.options'
 
 require('mason').setup {
-  registries = {
-    'lua:l.mason-registry.registry',
-    'github:mason-org/mason-registry',
-  },
   ui = {
     icons = {
       package_installed = '✓',
@@ -22,6 +18,10 @@ require('mason').setup {
 }
 
 require('mason-lspconfig').setup {
+  automatic_enable = {
+    -- JDTLS is configured separately using nvim-jdtls
+    exclude = { 'jdtls' },
+  },
   ensure_installed = {
     'eslint',
     'jdtls',
@@ -30,30 +30,16 @@ require('mason-lspconfig').setup {
     'phpactor',
     'tailwindcss',
     'ts_ls',
-    'volar',
+    'vue_ls',
   },
 }
 
-require('mason-lspconfig').setup_handlers {
-  function(server_name)
-    local config = lsp_options.make_config()
+local function configure_lsp(lsp_name, config_override)
+  vim.lsp.config(lsp_name, vim.tbl_extend('force', lsp_options.make_config(), config_override))
+end
 
-    if server_name == 'ts_ls' then
-      config = vim.tbl_extend('force', config, require 'l.lsp.tsserver')
-    end
-    if server_name == 'sumneko_lua' or server_name == 'lua_ls' then
-      config = vim.tbl_extend('force', config, require 'l.lsp.lua')
-    end
-    if server_name == 'jdtls' then
-      -- JDTLS is configured separately using nvim-jdtls
-      return
-    end
-    if server_name == 'volar' then
-      config = vim.tbl_extend('force', config, require 'l.lsp.volar')
-    end
-
-    require('lspconfig')[server_name].setup(config)
-  end,
-}
+configure_lsp('ts_ls', require 'l.lsp.tsserver')
+configure_lsp('lua_ls', require 'l.lsp.lua')
+configure_lsp('vue_ls', require 'l.lsp.volar')
 
 require('lspconfig').gdscript.setup(vim.tbl_extend('force', lsp_options.make_config(), require 'l.lsp.godot'))

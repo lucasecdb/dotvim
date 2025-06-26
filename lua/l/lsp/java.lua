@@ -9,12 +9,9 @@ local home_dir = os.getenv 'HOME'
 
 local java_home = os.getenv 'JAVA_HOME'
 
-local jdtls_package = registry.get_package 'jdtls'
-local jdtls_dir = jdtls_package:get_install_path()
+local jdtls_bin = vim.fn.exepath 'jdtls'
 
-local jdtls_bin = jdtls_dir .. '/jdtls'
-
-local local_lombok = jdtls_dir .. '/lombok.jar'
+local local_lombok = vim.fn.expand '$MASON/share/jdtls/lombok.jar'
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = home_dir .. '/.workspace/' .. project_name
@@ -29,30 +26,18 @@ end
 
 local java_debug_package = registry.get_package 'java-debug-adapter'
 local java_test_package = registry.get_package 'java-test'
-local vscode_java_decompiler_package = registry.get_package 'vscode-java-decompiler'
 
 local bundles = {}
 
-vim.list_extend(bundles, vim.fn.glob(vscode_java_decompiler_package:get_install_path() .. '/server/*.jar', true, true))
+vim.list_extend(bundles, vim.fn.globpath('$MASON/share/vscode-java-decompiler/bundles', '*.jar', true, true))
 
 if java_debug_package:is_installed() then
-  vim.list_extend(
-    bundles,
-    vim.fn.glob(
-      vim.fs.joinpath(
-        java_debug_package:get_install_path(),
-        'extension',
-        'server',
-        'com.microsoft.java.debug.plugin-*.jar'
-      ),
-      true,
-      true
-    )
-  )
+  vim.list_extend(bundles, vim.fn.globpath('$MASON/share/java-debug-adapter', '*.jar', true, true))
 end
 
 if java_test_package:is_installed() then
-  local package_json_path = vim.fs.joinpath(java_test_package:get_install_path(), 'extension', 'package.json')
+  local java_test_path = vim.fn.expand '$MASON/packages/java-test'
+  local package_json_path = java_test_path .. '/extension/package.json'
 
   local package_json_pipe = io.open(package_json_path, 'r')
 
@@ -64,7 +49,7 @@ if java_test_package:is_installed() then
     local extension_files = package_json['contributes']['javaExtensions']
 
     vim.tbl_map(function(file)
-      local file_path = vim.fs.joinpath(java_test_package:get_install_path(), 'extension', file)
+      local file_path = vim.fs.joinpath(java_test_path, 'extension', file)
 
       vim.list_extend(bundles, { vim.fs.normalize(file_path) })
     end, extension_files)

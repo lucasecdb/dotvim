@@ -53,12 +53,7 @@ return {
               type = 'executable',
               command = 'node',
               args = {
-                vim.fs.joinpath(
-                  registry.get_package('php-debug-adapter'):get_install_path(),
-                  'extension',
-                  'out',
-                  'phpDebug.js'
-                ),
+                vim.fn.exepath 'php-debug-adapter',
               },
             }
 
@@ -76,15 +71,13 @@ return {
           end
 
           if registry.is_installed 'js-debug-adapter' then
-            local install_path = registry.get_package('js-debug-adapter'):get_install_path()
-
             dap.adapters['pwa-node'] = {
               type = 'server',
               host = 'localhost',
               port = '${port}',
               executable = {
                 command = 'node',
-                args = { vim.fs.joinpath(install_path, 'js-debug', 'src', 'dapDebugServer.js'), '${port}' },
+                args = { vim.fn.exepath 'js-debug-adapter', '${port}' },
               },
             }
 

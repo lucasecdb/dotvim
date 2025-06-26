@@ -103,9 +103,9 @@ require('lazy').setup {
     'neovim/nvim-lspconfig',
     dependencies = {
       {
-        'williamboman/mason.nvim',
+        'mason-org/mason.nvim',
       },
-      'williamboman/mason-lspconfig.nvim',
+      'mason-org/mason-lspconfig.nvim',
 
       { 'j-hui/fidget.nvim', opts = {} },
     },
@@ -230,6 +230,7 @@ require('lazy').setup {
     end,
   },
 
+  -- Better text objects
   {
     'echasnovski/mini.ai',
     config = function()
