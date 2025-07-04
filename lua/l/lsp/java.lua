@@ -1,5 +1,4 @@
 local status, jdtls = pcall(require, 'jdtls')
-local registry = require 'mason-registry'
 
 if not status then
   return
@@ -24,37 +23,13 @@ if root_dir == '' then
   return
 end
 
-local java_debug_package = registry.get_package 'java-debug-adapter'
-local java_test_package = registry.get_package 'java-test'
-
 local bundles = {}
 
 vim.list_extend(bundles, vim.fn.globpath('$MASON/share/vscode-java-decompiler/bundles', '*.jar', true, true))
 
-if java_debug_package:is_installed() then
-  vim.list_extend(bundles, vim.fn.globpath('$MASON/share/java-debug-adapter', '*.jar', true, true))
-end
+vim.list_extend(bundles, vim.fn.globpath('$MASON/share/java-debug-adapter', '*.jar', true, true))
 
-if java_test_package:is_installed() then
-  local java_test_path = vim.fn.expand '$MASON/packages/java-test'
-  local package_json_path = java_test_path .. '/extension/package.json'
-
-  local package_json_pipe = io.open(package_json_path, 'r')
-
-  if package_json_pipe ~= nil then
-    local package_json_str = package_json_pipe:read '*a'
-
-    local package_json = vim.json.decode(package_json_str)
-
-    local extension_files = package_json['contributes']['javaExtensions']
-
-    vim.tbl_map(function(file)
-      local file_path = vim.fs.joinpath(java_test_path, 'extension', file)
-
-      vim.list_extend(bundles, { vim.fs.normalize(file_path) })
-    end, extension_files)
-  end
-end
+vim.list_extend(bundles, vim.fn.globpath('$MASON/share/java-test', '*.jar', true, true))
 
 local config = {
   cmd = {
