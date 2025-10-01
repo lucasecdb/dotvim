@@ -5,6 +5,7 @@ opt 'termguicolors'
 local catppuccin = require 'catppuccin'
 
 catppuccin.setup {
+  flavour = 'mocha',
   transparent_background = false,
   term_colors = false,
   styles = {
@@ -13,6 +14,17 @@ catppuccin.setup {
     keywords = {},
     strings = {},
     variables = {},
+  },
+  highlight_overrides = {
+    mocha = function(mocha)
+      local line_nr = mocha.overlay1
+
+      return {
+        LineNr = { fg = line_nr },
+        LineNrAbove = { fg = line_nr },
+        LineNrBelow = { fg = line_nr },
+      }
+    end,
   },
   integrations = {
     treesitter = true,

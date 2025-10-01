@@ -42,4 +42,4 @@ configure_lsp('ts_ls', require 'l.lsp.tsserver')
 configure_lsp('lua_ls', require 'l.lsp.lua')
 configure_lsp('vue_ls', require 'l.lsp.volar')
 
-require('lspconfig').gdscript.setup(vim.tbl_extend('force', lsp_options.make_config(), require 'l.lsp.godot'))
+vim.lsp.config('gdscript', vim.tbl_extend('force', lsp_options.make_config(), require 'l.lsp.godot'))
