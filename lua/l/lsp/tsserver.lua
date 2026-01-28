@@ -1,3 +1,5 @@
+local util = require 'lspconfig.util'
+
 local plugins = {}
 local filetypes = { 'typescript', 'javascript' }
 
@@ -16,10 +18,17 @@ if vue_language_server_pkg:is_installed() then
   table.insert(filetypes, 'vue')
 end
 
+local find_root = util.root_pattern('tsconfig.json', 'package.json', '.git')
+
 return {
   init_options = {
     plugins = plugins,
   },
+  root_dir = function(bufnr, on_dir)
+    local fname = vim.api.nvim_buf_get_name(bufnr)
+
+    on_dir(find_root(fname))
+  end,
   filetypes = filetypes,
   handlers = {
     ['$/typescriptVersion'] = function(err, result)
