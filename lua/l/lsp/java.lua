@@ -1,14 +1,10 @@
-local status, jdtls = pcall(require, 'jdtls')
+local jdtls = require 'jdtls'
 
-if not status then
-  return
-end
+local options = require 'l.lsp.options'
 
 local home_dir = os.getenv 'HOME'
 
 local java_home = os.getenv 'JAVA_HOME'
-
-local jdtls_bin = vim.fn.exepath 'jdtls'
 
 local local_lombok = vim.fn.expand '$MASON/share/jdtls/lombok.jar'
 
@@ -16,12 +12,6 @@ local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = home_dir .. '/.workspace/' .. project_name
 
 vim.fn.mkdir(workspace_dir, 'p')
-
-local root_markers = { 'gradlew', '.git', 'mvnw', 'settings.gradle' }
-local root_dir = require('jdtls.setup').find_root(root_markers)
-if root_dir == '' then
-  return
-end
 
 local bundles = {}
 
@@ -31,17 +21,17 @@ vim.list_extend(bundles, vim.fn.globpath('$MASON/share/java-debug-adapter', '*.j
 
 vim.list_extend(bundles, vim.fn.globpath('$MASON/share/java-test', '*.jar', true, true))
 
-local config = {
+return {
   cmd = {
-    jdtls_bin,
-    '--jvm-arg=-Dlog.protocol=true',
-    '--jvm-arg=-Dlog.level=ALL',
+    'jdtls',
     '--jvm-arg=-javaagent:' .. local_lombok,
     '-data',
     workspace_dir,
   },
 
-  root_dir = root_dir,
+  filetypes = { 'java' },
+
+  root_markers = { 'gradlew', '.git', 'mvnw', 'settings.gradle' },
 
   settings = {
     java = {
@@ -83,12 +73,9 @@ local config = {
   },
 
   on_attach = function(client, bufnr)
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
+    options.on_attach(client)
 
     vim.keymap.set('n', '<leader>df', jdtls.test_class, { buffer = bufnr, desc = '[D]ebug [F]ull' })
     vim.keymap.set('n', '<leader>dn', jdtls.test_nearest_method, { buffer = bufnr, desc = '[D]ebug [N]earest Method' })
   end,
 }
-
-return config
