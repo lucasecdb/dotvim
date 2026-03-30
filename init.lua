@@ -11,5 +11,5 @@ require 'l.keybindings'
 require 'l.autocmds'
 
 -- Plugins
-require 'l.lazy'
+require 'l.pack'
 require 'l.commands'

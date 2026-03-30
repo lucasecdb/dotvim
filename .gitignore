@@ -1,3 +1,4 @@
 plugged/
 .netrwhist
 plugin/
+.claude/settings.local.json
