@@ -137,6 +137,7 @@ require('lazy').setup {
         java = { 'ignore_format' },
         php = { 'php_cs_fixer' },
         gdscript = { 'gdformat' },
+        graphql = { 'prettier' },
       },
       formatters = {
         ignore_format = {
