@@ -19,10 +19,7 @@ vim.list_extend(bundles, vim.fn.globpath('$MASON/share/vscode-java-decompiler/bu
 
 vim.list_extend(bundles, vim.fn.globpath('$MASON/share/java-debug-adapter', '*.jar', true, true))
 
-vim.list_extend(
-  bundles,
-  vim.fn.globpath('$MASON/share/java-test', 'com.microsoft.java.test.plugin-*.jar', true, true)
-)
+vim.list_extend(bundles, vim.fn.globpath('$MASON/share/java-test', 'com.microsoft.java.test.plugin-*.jar', true, true))
 
 return {
   cmd = {
