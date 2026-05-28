@@ -48,10 +48,6 @@ return {
             name = 'JavaSE-21',
             path = '~/.sdkman/candidates/java/21.0.4-tem/',
           },
-          {
-            name = 'JavaSE-17',
-            path = '~/.sdkman/candidates/java/17.0.12-tem/',
-          },
         },
       },
     },
