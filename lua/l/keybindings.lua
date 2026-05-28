@@ -5,8 +5,12 @@ local check_back_space = require('l.utils').check_back_space
 
 -- Diagnostics
 -- Use `[g` and `]g` to navigate diagnostics
-vim.keymap.set('n', '[g', vim.diagnostic.goto_prev, { desc = 'Go to previous dia[g]nostic message' })
-vim.keymap.set('n', ']g', vim.diagnostic.goto_next, { desc = 'Go to next dia[g]nostic message' })
+vim.keymap.set('n', '[g', function()
+  vim.diagnostic.jump { count = -1 }
+end, { desc = 'Go to previous dia[g]nostic message' })
+vim.keymap.set('n', ']g', function()
+  vim.diagnostic.jump { count = 1 }
+end, { desc = 'Go to next dia[g]nostic message' })
 vim.keymap.set('n', '<leader>de', vim.diagnostic.open_float, { desc = 'Show [d]iagnostic [e]rror messages' })
 vim.keymap.set('n', '<leader>dq', vim.diagnostic.setloclist, { desc = 'Open [d]iagnostic [q]uickfix list' })
 
