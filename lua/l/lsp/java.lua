@@ -39,6 +39,19 @@ return {
       format = {
         enabled = false,
       },
+      settings = {
+        url = home_dir .. '/.vim/jdt.prefs',
+      },
+      import = {
+        gradle = {
+          arguments = { '--no-parallel' },
+          wrapper = { enabled = false },
+          version = '8.14',
+          java = {
+            home = java_home,
+          },
+        },
+      },
       configuration = {
         runtimes = {
           {
@@ -52,20 +65,6 @@ return {
 
   init_options = {
     bundles = bundles,
-    settings = {
-      java = {
-        imports = {
-          gradle = {
-            wrapper = {
-              checksums = {
-                { sha256 = '81a82aaea5abcc8ff68b3dfcb58b3c3c429378efd98e7433460610fecd7ae45f', allowed = true },
-                { sha256 = '7d3a4ac4de1c32b59bc6a4eb8ecb8e612ccd0cf1ae1e99f66902da64df296172', allowed = true },
-              },
-            },
-          },
-        },
-      },
-    },
   },
 
   on_attach = function(client, bufnr)
